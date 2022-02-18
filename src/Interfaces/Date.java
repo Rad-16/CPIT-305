@@ -44,6 +44,8 @@ public class Date extends javax.swing.JFrame {
         NetworkIcon.setIcon(NetworkS);
         CertainCenter.setText(center + " Center");
 
+        //DayComboBox.getItems().addAll()
+                //(new Int{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30});
     }
 
     /**
@@ -64,20 +66,18 @@ public class Date extends javax.swing.JFrame {
         CertainCenter = new javax.swing.JLabel();
         HomepageText2 = new javax.swing.JLabel();
         BackLabel = new javax.swing.JLabel();
-        NJP = new javax.swing.JPanel();
-        Jan19 = new javax.swing.JLabel();
-        TJP = new javax.swing.JPanel();
-        Jan20 = new javax.swing.JLabel();
-        TFJP = new javax.swing.JPanel();
-        Jan25 = new javax.swing.JLabel();
-        TTJP = new javax.swing.JPanel();
-        Jan30 = new javax.swing.JLabel();
         HomepageText4 = new javax.swing.JLabel();
         PhoneInfoPanel = new javax.swing.JPanel();
         TimeIcon = new javax.swing.JLabel();
         BatteryIcon = new javax.swing.JLabel();
         WiFiIcon = new javax.swing.JLabel();
         NetworkIcon = new javax.swing.JLabel();
+        DayComboBox = new javax.swing.JComboBox<>();
+        MonthComboBox = new javax.swing.JComboBox<>();
+        DateLabel = new javax.swing.JLabel();
+        TimeLabel = new javax.swing.JLabel();
+        DayComboBox1 = new javax.swing.JComboBox<>();
+        DayComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,106 +117,6 @@ public class Date extends javax.swing.JFrame {
             }
         });
         PinkBackground.add(BackLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
-
-        NJP.setBackground(new java.awt.Color(255, 255, 255));
-
-        Jan19.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        Jan19.setText("  19 Jan");
-        Jan19.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Jan19MousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout NJPLayout = new javax.swing.GroupLayout(NJP);
-        NJP.setLayout(NJPLayout);
-        NJPLayout.setHorizontalGroup(
-            NJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jan19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-        );
-        NJPLayout.setVerticalGroup(
-            NJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jan19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-
-        PinkBackground.add(NJP, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 80, 50));
-
-        TJP.setBackground(new java.awt.Color(255, 255, 255));
-
-        Jan20.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        Jan20.setText("  20 Jan");
-        Jan20.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Jan20MousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout TJPLayout = new javax.swing.GroupLayout(TJP);
-        TJP.setLayout(TJPLayout);
-        TJPLayout.setHorizontalGroup(
-            TJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jan20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-        );
-        TJPLayout.setVerticalGroup(
-            TJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jan20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-
-        PinkBackground.add(TJP, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
-
-        TFJP.setBackground(new java.awt.Color(255, 255, 255));
-
-        Jan25.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        Jan25.setText("  25 Jan");
-        Jan25.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Jan25MousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout TFJPLayout = new javax.swing.GroupLayout(TFJP);
-        TFJP.setLayout(TFJPLayout);
-        TFJPLayout.setHorizontalGroup(
-            TFJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-            .addGroup(TFJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Jan25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-        );
-        TFJPLayout.setVerticalGroup(
-            TFJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-            .addGroup(TFJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Jan25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
-        );
-
-        PinkBackground.add(TFJP, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
-
-        TTJP.setBackground(new java.awt.Color(255, 255, 255));
-
-        Jan30.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        Jan30.setText("  30 Jan");
-        Jan30.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                Jan30MousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout TTJPLayout = new javax.swing.GroupLayout(TTJP);
-        TTJP.setLayout(TTJPLayout);
-        TTJPLayout.setHorizontalGroup(
-            TTJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-            .addGroup(TTJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Jan30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-        );
-        TTJPLayout.setVerticalGroup(
-            TTJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-            .addGroup(TTJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Jan30, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
-        );
-
-        PinkBackground.add(TTJP, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
 
         HomepageText4.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         HomepageText4.setForeground(new java.awt.Color(178, 169, 169));
@@ -263,6 +163,52 @@ public class Date extends javax.swing.JFrame {
 
         PinkBackground.add(PhoneInfoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 20));
 
+        DayComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
+        DayComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+        DayComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        DayComboBox.setFocusTraversalPolicyProvider(true);
+        DayComboBox.setName(""); // NOI18N
+        DayComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DayComboBoxActionPerformed(evt);
+            }
+        });
+        PinkBackground.add(DayComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 70, 28));
+
+        MonthComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
+        MonthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        PinkBackground.add(MonthComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, 28));
+
+        DateLabel.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
+        DateLabel.setText("Date: ");
+        PinkBackground.add(DateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        TimeLabel.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
+        TimeLabel.setText("Time: ");
+        PinkBackground.add(TimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, 20));
+
+        DayComboBox1.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
+        DayComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Minute", "00", "15", "30", "45" }));
+        DayComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        DayComboBox1.setFocusTraversalPolicyProvider(true);
+        DayComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DayComboBox1ActionPerformed(evt);
+            }
+        });
+        PinkBackground.add(DayComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 308, -1, 28));
+
+        DayComboBox2.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
+        DayComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hour", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        DayComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        DayComboBox2.setFocusTraversalPolicyProvider(true);
+        DayComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DayComboBox2ActionPerformed(evt);
+            }
+        });
+        PinkBackground.add(DayComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 308, 70, 28));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -281,14 +227,6 @@ public class Date extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Jan20MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jan20MousePressed
-        // TODO add your handling code here:
-        date = "20";
-        dispose();
-        Time T = new Time();
-        T.setVisible(true);
-    }//GEN-LAST:event_Jan20MousePressed
-
     private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
         // TODO add your handling code here:
         dispose();
@@ -296,29 +234,18 @@ public class Date extends javax.swing.JFrame {
         C.setVisible(true);
     }//GEN-LAST:event_BackLabelMousePressed
 
-    private void Jan19MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jan19MousePressed
+    private void DayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayComboBoxActionPerformed
         // TODO add your handling code here:
-        date = "19";
-        dispose();
-        Time T = new Time();
-        T.setVisible(true);
-    }//GEN-LAST:event_Jan19MousePressed
+        
+    }//GEN-LAST:event_DayComboBoxActionPerformed
 
-    private void Jan25MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jan25MousePressed
+    private void DayComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayComboBox2ActionPerformed
         // TODO add your handling code here:
-        date = "25";
-        dispose();
-        Time T = new Time();
-        T.setVisible(true);
-    }//GEN-LAST:event_Jan25MousePressed
+    }//GEN-LAST:event_DayComboBox2ActionPerformed
 
-    private void Jan30MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jan30MousePressed
+    private void DayComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayComboBox1ActionPerformed
         // TODO add your handling code here:
-        date = "30";
-        dispose();
-        Time T = new Time();
-        T.setVisible(true);
-    }//GEN-LAST:event_Jan30MousePressed
+    }//GEN-LAST:event_DayComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,23 +293,21 @@ public class Date extends javax.swing.JFrame {
     private javax.swing.JLabel BackLabel;
     private javax.swing.JLabel BatteryIcon;
     private javax.swing.JLabel CertainCenter;
+    private javax.swing.JLabel DateLabel;
+    private javax.swing.JComboBox<String> DayComboBox;
+    private javax.swing.JComboBox<String> DayComboBox1;
+    private javax.swing.JComboBox<String> DayComboBox2;
     private javax.swing.JLabel HomepageText2;
     private javax.swing.JLabel HomepageText4;
-    private javax.swing.JLabel Jan19;
-    private javax.swing.JLabel Jan20;
-    private javax.swing.JLabel Jan25;
-    private javax.swing.JLabel Jan30;
     private javax.swing.JLabel MenuIcon;
-    private javax.swing.JPanel NJP;
+    private javax.swing.JComboBox<String> MonthComboBox;
     private javax.swing.JLabel NetworkIcon;
     private javax.swing.JLabel NextLabel;
     private javax.swing.JPanel PhoneInfoPanel;
     private javax.swing.JPanel PinkBackground;
-    private javax.swing.JPanel TFJP;
-    private javax.swing.JPanel TJP;
-    private javax.swing.JPanel TTJP;
     private javax.swing.JLabel Text;
     private javax.swing.JLabel TimeIcon;
+    private javax.swing.JLabel TimeLabel;
     private javax.swing.JPanel UbMenu;
     private javax.swing.JLabel WiFiIcon;
     private javax.swing.JLabel calIcon;
