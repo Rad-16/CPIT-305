@@ -228,6 +228,7 @@ public class SignUp extends javax.swing.JFrame {
 
     private void EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterActionPerformed
 
+        System.out.println("sign");
     //--------------------------------Checks----------------------------------//
         boolean validPassword = checkPassword();
         boolean validEmail = checkID();
