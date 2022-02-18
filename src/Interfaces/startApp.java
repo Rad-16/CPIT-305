@@ -26,7 +26,6 @@ public static ArrayList<User> users = new ArrayList<>();
      */
     public static void main(String[] args) {
         
-        System.out.println("");
     //----------------------------------Try-----------------------------------//
     
         //try to catch File and IO Exception
