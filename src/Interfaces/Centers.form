@@ -70,6 +70,7 @@
             <Property name="text" type="java.lang.String" value="Next &gt;"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="NextLabelMouseClicked"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="NextLabelMousePressed"/>
           </Events>
           <Constraints>

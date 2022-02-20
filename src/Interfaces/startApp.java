@@ -20,14 +20,15 @@ import java.util.logging.Logger;
  * @author renad
  */
 public class startApp {
-public static ArrayList<User> users = new ArrayList<>();
+
+    public User u;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
     //----------------------------------Try-----------------------------------//
-    
+
         //try to catch File and IO Exception
         try (BufferedReader  in = new BufferedReader(new FileReader("Users.txt"));){
             
@@ -35,7 +36,7 @@ public static ArrayList<User> users = new ArrayList<>();
             String s;
             while((s=in.readLine()) != null){
                 String[] info = s.split("_");
-                users.add(new User(info[0], info[1]));
+                User.getUsers().add(new User(info[0], info[1]));
             }
             
             //Start from Login

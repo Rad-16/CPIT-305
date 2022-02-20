@@ -5,7 +5,6 @@
  */
 package Interfaces;
 
-import static Interfaces.startApp.users;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.BufferedReader;
@@ -27,10 +26,10 @@ public class LogIn extends javax.swing.JFrame {
      * Creates new form LogIn
      */
     boolean validInfo;
+    public static User u;
     
     public LogIn() {
         initComponents();
-       
     //---------------------------------Icons----------------------------------//
     
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
@@ -240,7 +239,7 @@ public class LogIn extends javax.swing.JFrame {
         
     //-------------------------Search--------------------------//
         //Search for the user
-        u = User.search(u, users);
+        this.u = User.search(u);
         
     //----------------------Search Result----------------------//
         //if the user info not found
