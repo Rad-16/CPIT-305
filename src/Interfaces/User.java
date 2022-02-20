@@ -18,25 +18,28 @@ public class User {
 //----------------------------Variables----------------------------//
     private String ID;
     private String password;
-    private ArrayList<Appointment> myAppointment;
+    private ArrayList<Appointment> myAppointment = new ArrayList();
+    private static ArrayList<User> users = new ArrayList();
 
 //---------------------------Constructer--------------------------//
     public User(String ID, String password) {
         this.ID = ID;
         this.password = password;
-        this.myAppointment = myAppointment;
     }
 
 //-------------------------Search Method--------------------------//
-    public static User search(User u, ArrayList<User> usersList){
-        for (int i = 0; i < usersList.size(); i++) {
-            if (u.getID().equals(usersList.get(i).getID()) && u.getPassword().equals(usersList.get(i).getPassword())) {
+    public static User search(User u){
+        for (int i = 0; i < users.size(); i++) {
+            if (u.getID().equals(users.get(i).getID()) && u.getPassword().equals(users.get(i).getPassword())) {
                 return u;
             }
         }
         return null;
     }
     
+    public static void add(){
+        
+    }
     
 //-----------------------------Getter-----------------------------//
     public String getID() {
@@ -51,6 +54,11 @@ public class User {
         return myAppointment;
     }
 
+    public static ArrayList<User> getUsers() {
+        return users;
+    }
+    
+
 //-----------------------------Setter-----------------------------//
     public void setID(String ID) {
         this.ID = ID;
@@ -62,6 +70,10 @@ public class User {
 
     public void setMyAppointment(ArrayList<Appointment> myAppointment) {
         this.myAppointment = myAppointment;
+    }
+
+    public static void setUsers(ArrayList<User> users) {
+        User.users = users;
     }
     
     

@@ -9,6 +9,11 @@ import static Interfaces.Centers.center;
 import static Interfaces.Date.date;
 import static Interfaces.Time.time;
 import java.awt.Image;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -45,6 +50,17 @@ public class Booking extends javax.swing.JFrame {
         
         TimeCText.setText(time + " at " + center + " center");
         DateText.setText("on: " + date + " Jan 2022");
+        
+        // Add Appointment to the user
+        Appointment a = new Appointment(date, time, center);
+        LogIn.u.getMyAppointment().add(a);
+        
+        // write Appointment to file
+        try( BufferedWriter bw = new BufferedWriter(new FileWriter(LogIn.u.getID()+".txt", true)) ){
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 

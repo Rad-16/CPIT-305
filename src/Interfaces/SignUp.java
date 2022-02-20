@@ -5,7 +5,7 @@
  */
 package Interfaces;
 
-import static Interfaces.startApp.users;
+
 import java.awt.Color;
 import java.awt.Image;
 import java.io.BufferedReader;
@@ -243,7 +243,7 @@ public class SignUp extends javax.swing.JFrame {
             String Password = new String (Pass.getPassword());
             
             //Add User to the array
-            users.add(new User(ID, Password));
+            User.getUsers().add(new User(ID, Password));
             
             //try to write User Info. to the file
             try (BufferedWriter out = new BufferedWriter(new FileWriter("Users.txt", true))) {
