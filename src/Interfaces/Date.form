@@ -97,7 +97,11 @@
             <Property name="text" type="java.lang.String" value="Next &gt;"/>
           </Properties>
           <Events>
+<<<<<<< HEAD
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="NextLabelMousePressed"/>
+=======
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="NextLabelMouseClicked"/>
+>>>>>>> a39a74d7b044c643573fc3b868b0c2385b703bb4
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -369,7 +373,11 @@
             </Constraint>
           </Constraints>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JComboBox" name="MinComboBox">
+=======
+        <Component class="javax.swing.JComboBox" name="MinuteComboBox1">
+>>>>>>> a39a74d7b044c643573fc3b868b0c2385b703bb4
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Book Antiqua" size="13" style="0"/>
@@ -389,7 +397,11 @@
             <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
           </Properties>
           <Events>
+<<<<<<< HEAD
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MinComboBoxActionPerformed"/>
+=======
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MinuteComboBox1ActionPerformed"/>
+>>>>>>> a39a74d7b044c643573fc3b868b0c2385b703bb4
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -400,7 +412,11 @@
             </Constraint>
           </Constraints>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JComboBox" name="HourComboBox">
+=======
+        <Component class="javax.swing.JComboBox" name="HourComboBox2">
+>>>>>>> a39a74d7b044c643573fc3b868b0c2385b703bb4
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Book Antiqua" size="13" style="0"/>
@@ -440,7 +456,11 @@
             <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
           </Properties>
           <Events>
+<<<<<<< HEAD
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HourComboBoxActionPerformed"/>
+=======
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HourComboBox2ActionPerformed"/>
+>>>>>>> a39a74d7b044c643573fc3b868b0c2385b703bb4
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
