@@ -27,35 +27,35 @@ public class LogIn extends javax.swing.JFrame {
      */
     boolean validInfo;
     public static User u;
-    
+
     public LogIn() {
         initComponents();
-    //---------------------------------Icons----------------------------------//
-    
+        //---------------------------------Icons----------------------------------//
+
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);
-        
+
         ImageIcon User = new ImageIcon("Icon\\user.png");
         ImageIcon UserS = new ImageIcon(User.getImage().getScaledInstance(120, 125, Image.SCALE_SMOOTH));
         UserIcon.setIcon(UserS);
-        
+
         ImageIcon Battery = new ImageIcon("Icon\\battery-status.png");
         ImageIcon BatteryS = new ImageIcon(Battery.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         BatteryIcon.setIcon(BatteryS);
-        
+
         ImageIcon WiFi = new ImageIcon("Icon\\wifi.png");
         ImageIcon WiFiS = new ImageIcon(WiFi.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         WiFiIcon.setIcon(WiFiS);
-        
+
         ImageIcon Network = new ImageIcon("Icon\\signal.png");
         ImageIcon NetworkS = new ImageIcon(Network.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         NetworkIcon.setIcon(NetworkS);
-        
+
         //Initalise Text
         ID_Error.setText(" ");
         Password_Error.setText(" ");
-        
+
     }
 
     /**
@@ -196,106 +196,98 @@ public class LogIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterActionPerformed
 
-    //--------------------------------Checks----------------------------------//
+        //--------------------------------Checks----------------------------------//
         boolean validPassword = checkPassword();
         boolean validID = checkID();
         boolean vaildExist = isExist();
-        
-    //-------------------------------Combine----------------------------------//
+
+        //-------------------------------Combine----------------------------------//
         validInfo = validPassword && validID && vaildExist;
-        
-    //--------------------------------Reslut----------------------------------//
+
+        //--------------------------------Reslut----------------------------------//
         //if Result is true, go Homepage
         if (validInfo == true) {
             Homepage H = new Homepage();
             H.setVisible(true);
             this.dispose();
         }
-        
+
     }//GEN-LAST:event_EnterActionPerformed
 
     private void SignUpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpMousePressed
-        
+
         //If Sign Up Pressed go to SingUp Interface
         SignUp s = new SignUp();
         s.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_SignUpMousePressed
 
-    private boolean isExist(){
+    private boolean isExist() {
 
-    //------------------------Initalise------------------------//
-    
+        //------------------------Initalise------------------------//
         //Get user info. from labels
         String id = IDField.getText();
-        String password = new String (Pass.getPassword());
-                
+        String password = new String(Pass.getPassword());
+
         //make user object
-        User u = new User(id, password);
-        
-    //-------------------------Search--------------------------//
+        User userTemp = new User(id, password);
+
+        //-------------------------Search--------------------------//
         //Search for the user
-        this.u = User.search(u);
-        
-    //----------------------Search Result----------------------//
+        userTemp = User.search(userTemp);
+
+        //----------------------Search Result----------------------//
         //if the user info not found
-        if (u == null) {
+        if (userTemp == null) {
             UserExisted.setText("Not Found");
             return false;
         }
-        
-    //--------------------------Return-------------------------//
+
+        //--------------------------Return-------------------------//
+        u = new User(userTemp.getID(), userTemp.getPassword());
         return true;
     }
-    
+
     private boolean checkID() {
 
-    //------------------------Initalise------------------------//
+        //------------------------Initalise------------------------//
         boolean valid = true;
         String ID = IDField.getText();
 
-    //--------------------------Case1--------------------------//
-    
+        //--------------------------Case1--------------------------//
         //if ID is Equal to nothing
         if (ID.trim().equals("")) {
             ID_Error.setText("Enter Your ID/Iqama");
             ID_Error.setForeground(Color.red);
             valid = false;
-        } 
-        
-    //--------------------------Case2--------------------------//
-        
+        } //--------------------------Case2--------------------------//
         //ID must be Only 10 digit
         else if (ID.matches("[0-9]+") && ID.length() == 10) {
             ID_Error.setText(" ");
-        } 
-        
-    //--------------------------Case3--------------------------//
-        
+        } //--------------------------Case3--------------------------//
         //if ID not digit or not in right length
         else {
             ID_Error.setText("10-digit ID/Iqama");
             ID_Error.setForeground(Color.red);
             valid = false;
         }
-        
-    //-------------------------Return--------------------------//
+
+        //-------------------------Return--------------------------//
         return valid;
     }
-    
+
     private boolean checkPassword() {
 
-    //------------------------Initalise------------------------//
+        //------------------------Initalise------------------------//
         boolean valid = true;
-        String password = new String (Pass.getPassword());
+        String password = new String(Pass.getPassword());
         Password_Error.setText("");
 
-    //--------------------------Case1--------------------------//
-        
+        //--------------------------Case1--------------------------//
         //Equal to nothing
         if (password.trim().equals("")) {
             valid = false;
@@ -304,30 +296,24 @@ public class LogIn extends javax.swing.JFrame {
 
             Pass.setText("");
 
-        } 
-    
-    //--------------------------Cas2--------------------------//
-        
+        } //--------------------------Cas2--------------------------//
         //Correct format
         else if (password.matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).{6,10}$")) {
-            
-        } 
-        
-    //--------------------------Case3--------------------------//
-        
+
+        } //--------------------------Case3--------------------------//
         //not in the right format
         else {
             valid = false;
             Password_Error.setText("Incorrect Password");
             Password_Error.setForeground(Color.red);
-            
+
             Pass.setText("");
         }
 
-    //-------------------------Return--------------------------//
+        //-------------------------Return--------------------------//
         return valid;
     }
-    
+
     /**
      * @param args the command line arguments
      */

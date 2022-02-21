@@ -8,6 +8,7 @@ package Interfaces;
 import static Interfaces.Centers.center;
 import static Interfaces.Date.date;
 import static Interfaces.Time.time;
+import static Interfaces.LogIn.u;
 import java.awt.Image;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -53,10 +54,12 @@ public class Booking extends javax.swing.JFrame {
         
         // Add Appointment to the user
         Appointment a = new Appointment(date, time, center);
-        LogIn.u.getMyAppointment().add(a);
+        u.getMyAppointment().add(a);
         
         // write Appointment to file
-        try( BufferedWriter bw = new BufferedWriter(new FileWriter(LogIn.u.getID()+".txt", true)) ){
+        try( BufferedWriter bw = new BufferedWriter(new FileWriter("Appoinments\\"+u.getID()+".txt", true)) ){
+            
+            // Write appointment informations on the user fila
             
         } catch (IOException ex) {
             Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
