@@ -176,8 +176,8 @@ public class Date extends javax.swing.JFrame {
         PinkBackground.add(DayComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 70, 28));
 
         MonthComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
-        MonthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        PinkBackground.add(MonthComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, 28));
+        MonthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February ", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        PinkBackground.add(MonthComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 80, 28));
 
         DateLabel.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         DateLabel.setText("Date: ");
@@ -196,7 +196,7 @@ public class Date extends javax.swing.JFrame {
                 DayComboBox1ActionPerformed(evt);
             }
         });
-        PinkBackground.add(DayComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 308, -1, 28));
+        PinkBackground.add(DayComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 308, 80, 28));
 
         DayComboBox2.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
         DayComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hour", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));

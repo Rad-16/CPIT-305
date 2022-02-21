@@ -82,8 +82,7 @@ public class Requirements extends javax.swing.JFrame {
         Reslut = new javax.swing.JButton();
         age_Error = new javax.swing.JLabel();
         w_Error = new javax.swing.JLabel();
-        YearComboBox = new javax.swing.JComboBox<>();
-        MonthComboBox = new javax.swing.JComboBox<>();
+        LastDonComboBox = new javax.swing.JComboBox<>();
         LastDonLabel = new javax.swing.JLabel();
         LineDown = new javax.swing.JLabel();
         LineUp = new javax.swing.JLabel();
@@ -220,21 +219,17 @@ public class Requirements extends javax.swing.JFrame {
         PinkBackground.add(age_Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 175, 90, 20));
         PinkBackground.add(w_Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 225, 90, 20));
 
-        YearComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
-        YearComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015" }));
-        YearComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        YearComboBox.setFocusTraversalPolicyProvider(true);
-        YearComboBox.setName(""); // NOI18N
-        YearComboBox.addActionListener(new java.awt.event.ActionListener() {
+        LastDonComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
+        LastDonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "1-3 Weeks ago", "1-3 Months ago", "More than 3 Months" }));
+        LastDonComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        LastDonComboBox.setFocusTraversalPolicyProvider(true);
+        LastDonComboBox.setName(""); // NOI18N
+        LastDonComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                YearComboBoxActionPerformed(evt);
+                LastDonComboBoxActionPerformed(evt);
             }
         });
-        PinkBackground.add(YearComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 60, 28));
-
-        MonthComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 12)); // NOI18N
-        MonthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        PinkBackground.add(MonthComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 60, 28));
+        PinkBackground.add(LastDonComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 130, 28));
 
         LastDonLabel.setBackground(new java.awt.Color(255, 204, 204));
         LastDonLabel.setFont(new java.awt.Font("Book Antiqua", 0, 20)); // NOI18N
@@ -252,7 +247,7 @@ public class Requirements extends javax.swing.JFrame {
         LineUp.setText("_________________________");
         PinkBackground.add(LineUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 135, -1, -1));
         PinkBackground.add(QuizIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 390, 90, 80));
-        PinkBackground.add(LastDon_Erorr, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 130, 20));
+        PinkBackground.add(LastDon_Erorr, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 295, 120, 20));
         PinkBackground.add(Antibiotic_Erorr, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 100, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -286,11 +281,6 @@ public class Requirements extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_yesActionPerformed
 
-    private void YearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YearComboBoxActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_YearComboBoxActionPerformed
-
     private void ReslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReslutActionPerformed
         // TODO add your handling code here:
         
@@ -319,6 +309,10 @@ public class Requirements extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_ReslutActionPerformed
+
+    private void LastDonComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastDonComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LastDonComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -441,35 +435,20 @@ public class Requirements extends javax.swing.JFrame {
         
     //------------------------Initalise------------------------//
         boolean valid = true;
-        String month = MonthComboBox.getSelectedItem().toString();
-        String year = YearComboBox.getSelectedItem().toString();
+        String LastDon = LastDonComboBox.getSelectedItem().toString();
         
     //--------------------------Case1--------------------------//
     
         //No value entered
-        if(month.equals("Month") || year.equals("Year")){
-            LastDon_Erorr.setText("Enter The Date");
-            LastDon_Erorr.setForeground(Color.red);
-            valid = false;
+        if(LastDon.equals("More than 3 Months")){
+            valid = true;
         }
         
     //--------------------------Case2--------------------------//
         else{
-            int monthInt =Integer.parseInt(month);
-            int yearInt =Integer.parseInt(year);
-        
-        //------------------------Case2.1---------------------//
-        
-            //if before years, then more than 3 month
-            if (yearInt < 2022) {
-                valid = true;
-            } 
-          
-        //------------------------Case2.2---------------------//
-            //Same year, Month condtion
-            else{
-                valid = false;
-            }
+            LastDon_Erorr.setText("Wait above 3 months");
+            LastDon_Erorr.setForeground(Color.red);
+            valid = false;
         }
         
     //-------------------------Return--------------------------//
@@ -520,12 +499,12 @@ public class Requirements extends javax.swing.JFrame {
     private javax.swing.JLabel AntibioticsLabel;
     private javax.swing.JLabel BatteryIcon;
     private javax.swing.JLabel HomepageText;
+    private javax.swing.JComboBox<String> LastDonComboBox;
     private javax.swing.JLabel LastDonLabel;
     private javax.swing.JLabel LastDon_Erorr;
     private javax.swing.JLabel LineDown;
     private javax.swing.JLabel LineUp;
     private javax.swing.JLabel MenuIcon;
-    private javax.swing.JComboBox<String> MonthComboBox;
     private javax.swing.JLabel NetworkIcon;
     private javax.swing.JRadioButton No;
     private javax.swing.JPanel PhoneInfoPanel;
@@ -538,7 +517,6 @@ public class Requirements extends javax.swing.JFrame {
     private javax.swing.JLabel WeightLabel;
     private javax.swing.JSpinner WeightSpinner;
     private javax.swing.JLabel WiFiIcon;
-    private javax.swing.JComboBox<String> YearComboBox;
     private javax.swing.JLabel age_Error;
     private javax.swing.JLabel backLabel;
     private javax.swing.JLabel w_Error;
