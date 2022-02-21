@@ -5,8 +5,11 @@
  */
 package Interfaces;
 
+import java.awt.Color;
 import java.awt.Image;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,15 +21,12 @@ public class Requirements extends javax.swing.JFrame {
      * Creates new form Requirements
      */
     public Requirements() {
+        
         initComponents();
         
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);
-        
-        ImageIcon Req = new ImageIcon("Icon\\shopping-list.png");
-        ImageIcon ReqS = new ImageIcon(Req.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH));
-        ReqIcon.setIcon(ReqS);
         
         ImageIcon Battery = new ImageIcon("Icon\\battery-status.png");
         ImageIcon BatteryS = new ImageIcon(Battery.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
@@ -39,6 +39,16 @@ public class Requirements extends javax.swing.JFrame {
         ImageIcon Network = new ImageIcon("Icon\\signal.png");
         ImageIcon NetworkS = new ImageIcon(Network.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         NetworkIcon.setIcon(NetworkS);
+        
+        ImageIcon Quiz = new ImageIcon("Icon\\shopping-list.png");
+        ImageIcon QuizS = new ImageIcon(Quiz.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH));
+        QuizIcon.setIcon(QuizS);
+        
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(yes); buttonGroup.add(No);
+        
+        
+        
     }
 
     /**
@@ -52,17 +62,6 @@ public class Requirements extends javax.swing.JFrame {
 
         PinkBackground = new javax.swing.JPanel();
         HomepageText = new javax.swing.JLabel();
-        ReqIcon = new javax.swing.JLabel();
-        ReqTextBG = new javax.swing.JPanel();
-        ReqText = new javax.swing.JLabel();
-        ReqText1 = new javax.swing.JLabel();
-        ReqText2 = new javax.swing.JLabel();
-        ReqText3 = new javax.swing.JLabel();
-        ReqText4 = new javax.swing.JLabel();
-        ReqText5 = new javax.swing.JLabel();
-        ReqText7 = new javax.swing.JLabel();
-        ReqText8 = new javax.swing.JLabel();
-        ReqText9 = new javax.swing.JLabel();
         UbMenu = new javax.swing.JPanel();
         Text = new javax.swing.JLabel();
         MenuIcon = new javax.swing.JLabel();
@@ -72,106 +71,34 @@ public class Requirements extends javax.swing.JFrame {
         WiFiIcon = new javax.swing.JLabel();
         NetworkIcon = new javax.swing.JLabel();
         backLabel = new javax.swing.JLabel();
+        AgeLabel = new javax.swing.JLabel();
+        AgeSpinner = new javax.swing.JSpinner();
+        WeightLabel = new javax.swing.JLabel();
+        WeightSpinner = new javax.swing.JSpinner();
+        AntibioticsLabel = new javax.swing.JLabel();
+        yes = new javax.swing.JRadioButton();
+        No = new javax.swing.JRadioButton();
+        Reslut = new javax.swing.JButton();
+        age_Error = new javax.swing.JLabel();
+        w_Error = new javax.swing.JLabel();
+        YearComboBox = new javax.swing.JComboBox<>();
+        MonthComboBox = new javax.swing.JComboBox<>();
+        LastDonLabel = new javax.swing.JLabel();
+        LineDown = new javax.swing.JLabel();
+        LineUp = new javax.swing.JLabel();
+        QuizIcon = new javax.swing.JLabel();
+        LastDon_Erorr = new javax.swing.JLabel();
+        Antibiotic_Erorr = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         PinkBackground.setBackground(new java.awt.Color(255, 230, 230));
+        PinkBackground.setAutoscrolls(true);
         PinkBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         HomepageText.setFont(new java.awt.Font("Book Antiqua", 1, 28)); // NOI18N
-        HomepageText.setText("Requirements");
-        PinkBackground.add(HomepageText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
-        PinkBackground.add(ReqIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 100, 100));
-
-        ReqTextBG.setBackground(new java.awt.Color(255, 204, 204));
-        ReqTextBG.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 132, 132), java.awt.Color.white));
-
-        ReqText.setBackground(new java.awt.Color(255, 204, 204));
-        ReqText.setFont(new java.awt.Font("Georgia Pro Semibold", 0, 14)); // NOI18N
-        ReqText.setForeground(new java.awt.Color(61, 9, 9));
-        ReqText.setText("• Iron Levels should be at least 100 ");
-
-        ReqText1.setBackground(new java.awt.Color(255, 204, 204));
-        ReqText1.setFont(new java.awt.Font("Georgia Pro Semibold", 0, 14)); // NOI18N
-        ReqText1.setForeground(new java.awt.Color(61, 9, 9));
-        ReqText1.setText("   or above ");
-
-        ReqText2.setBackground(new java.awt.Color(255, 204, 204));
-        ReqText2.setFont(new java.awt.Font("Georgia Pro Semibold", 0, 14)); // NOI18N
-        ReqText2.setForeground(new java.awt.Color(61, 9, 9));
-        ReqText2.setText("• Hemoglobin Levels should be at ");
-
-        ReqText3.setBackground(new java.awt.Color(255, 204, 204));
-        ReqText3.setFont(new java.awt.Font("Georgia Pro Semibold", 0, 14)); // NOI18N
-        ReqText3.setForeground(new java.awt.Color(61, 9, 9));
-        ReqText3.setText("   least 11.5 or above ");
-
-        ReqText4.setBackground(new java.awt.Color(255, 204, 204));
-        ReqText4.setFont(new java.awt.Font("Georgia Pro Semibold", 0, 14)); // NOI18N
-        ReqText4.setForeground(new java.awt.Color(61, 9, 9));
-        ReqText4.setText("• Hemoglobin Levels should be at ");
-
-        ReqText5.setBackground(new java.awt.Color(255, 204, 204));
-        ReqText5.setFont(new java.awt.Font("Georgia Pro Semibold", 0, 14)); // NOI18N
-        ReqText5.setForeground(new java.awt.Color(61, 9, 9));
-        ReqText5.setText("• Donor age should be at least 17 ");
-
-        ReqText7.setBackground(new java.awt.Color(255, 204, 204));
-        ReqText7.setFont(new java.awt.Font("Georgia Pro Semibold", 0, 14)); // NOI18N
-        ReqText7.setForeground(new java.awt.Color(61, 9, 9));
-        ReqText7.setText("   blood in the last 60 days ");
-
-        ReqText8.setBackground(new java.awt.Color(255, 204, 204));
-        ReqText8.setFont(new java.awt.Font("Georgia Pro Semibold", 0, 14)); // NOI18N
-        ReqText8.setForeground(new java.awt.Color(61, 9, 9));
-        ReqText8.setText("• Donor should have not donated ");
-
-        ReqText9.setBackground(new java.awt.Color(255, 204, 204));
-        ReqText9.setFont(new java.awt.Font("Georgia Pro Semibold", 0, 14)); // NOI18N
-        ReqText9.setForeground(new java.awt.Color(61, 9, 9));
-        ReqText9.setText("• Donor should weigh at least 50 Kg");
-
-        javax.swing.GroupLayout ReqTextBGLayout = new javax.swing.GroupLayout(ReqTextBG);
-        ReqTextBG.setLayout(ReqTextBGLayout);
-        ReqTextBGLayout.setHorizontalGroup(
-            ReqTextBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ReqTextBGLayout.createSequentialGroup()
-                .addGroup(ReqTextBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ReqText, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReqText1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReqText2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReqText3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReqText4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReqText9, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReqText8, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReqText7, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReqText5, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        ReqTextBGLayout.setVerticalGroup(
-            ReqTextBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ReqTextBGLayout.createSequentialGroup()
-                .addComponent(ReqText, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(ReqText1)
-                .addGap(18, 18, 18)
-                .addComponent(ReqText2)
-                .addGap(0, 0, 0)
-                .addComponent(ReqText3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ReqText4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ReqText9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ReqText8)
-                .addGap(0, 0, 0)
-                .addComponent(ReqText7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ReqText5)
-                .addGap(0, 5, Short.MAX_VALUE))
-        );
-
-        PinkBackground.add(ReqTextBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 150, 250, 250));
+        HomepageText.setText("Requirements Test");
+        PinkBackground.add(HomepageText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         UbMenu.setBackground(new java.awt.Color(255, 204, 204));
         UbMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -233,25 +160,111 @@ public class Requirements extends javax.swing.JFrame {
         });
         PinkBackground.add(backLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
 
+        AgeLabel.setBackground(new java.awt.Color(255, 255, 255));
+        AgeLabel.setFont(new java.awt.Font("Book Antiqua", 0, 22)); // NOI18N
+        AgeLabel.setForeground(new java.awt.Color(61, 9, 9));
+        AgeLabel.setText("Age: ");
+        PinkBackground.add(AgeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 60, 29));
+
+        AgeSpinner.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        PinkBackground.add(AgeSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 60, 30));
+
+        WeightLabel.setBackground(new java.awt.Color(255, 204, 204));
+        WeightLabel.setFont(new java.awt.Font("Book Antiqua", 0, 22)); // NOI18N
+        WeightLabel.setForeground(new java.awt.Color(61, 9, 9));
+        WeightLabel.setText("Weight: ");
+        PinkBackground.add(WeightLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, 29));
+
+        WeightSpinner.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        PinkBackground.add(WeightSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 60, 30));
+
+        AntibioticsLabel.setBackground(new java.awt.Color(255, 204, 204));
+        AntibioticsLabel.setFont(new java.awt.Font("Book Antiqua", 0, 20)); // NOI18N
+        AntibioticsLabel.setForeground(new java.awt.Color(61, 9, 9));
+        AntibioticsLabel.setText("Taking antibiotics:");
+        PinkBackground.add(AntibioticsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, 29));
+        AntibioticsLabel.getAccessibleContext().setAccessibleName("Was last donation before \n3 months?");
+
+        yes.setBackground(new java.awt.Color(255, 255, 255));
+        yes.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        yes.setText("Yes");
+        yes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yesActionPerformed(evt);
+            }
+        });
+        PinkBackground.add(yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 325, -1, 20));
+
+        No.setBackground(new java.awt.Color(255, 255, 255));
+        No.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        No.setText("No");
+        No.setToolTipText("");
+        No.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NoActionPerformed(evt);
+            }
+        });
+        PinkBackground.add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 325, -1, 20));
+
+        Reslut.setBackground(new java.awt.Color(207, 117, 117));
+        Reslut.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        Reslut.setForeground(new java.awt.Color(255, 255, 255));
+        Reslut.setText("Result");
+        Reslut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReslutActionPerformed(evt);
+            }
+        });
+        PinkBackground.add(Reslut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, 90, -1));
+        PinkBackground.add(age_Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 175, 90, 20));
+        PinkBackground.add(w_Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 225, 90, 20));
+
+        YearComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
+        YearComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015" }));
+        YearComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        YearComboBox.setFocusTraversalPolicyProvider(true);
+        YearComboBox.setName(""); // NOI18N
+        YearComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                YearComboBoxActionPerformed(evt);
+            }
+        });
+        PinkBackground.add(YearComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 60, 28));
+
+        MonthComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 12)); // NOI18N
+        MonthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        PinkBackground.add(MonthComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 60, 28));
+
+        LastDonLabel.setBackground(new java.awt.Color(255, 204, 204));
+        LastDonLabel.setFont(new java.awt.Font("Book Antiqua", 0, 20)); // NOI18N
+        LastDonLabel.setForeground(new java.awt.Color(61, 9, 9));
+        LastDonLabel.setText("Last Donatin:");
+        PinkBackground.add(LastDonLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 120, 29));
+
+        LineDown.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        LineDown.setForeground(new java.awt.Color(178, 169, 169));
+        LineDown.setText("_________________________");
+        PinkBackground.add(LineDown, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
+
+        LineUp.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        LineUp.setForeground(new java.awt.Color(178, 169, 169));
+        LineUp.setText("_________________________");
+        PinkBackground.add(LineUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 135, -1, -1));
+        PinkBackground.add(QuizIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 390, 90, 80));
+        PinkBackground.add(LastDon_Erorr, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 130, 20));
+        PinkBackground.add(Antibiotic_Erorr, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 100, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(PinkBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(PinkBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(PinkBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(PinkBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -263,6 +276,47 @@ public class Requirements extends javax.swing.JFrame {
         Homepage H = new Homepage();
         H.setVisible(true);
     }//GEN-LAST:event_backLabelMousePressed
+
+    private void NoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NoActionPerformed
+
+    private void yesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yesActionPerformed
+
+    private void YearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YearComboBoxActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_YearComboBoxActionPerformed
+
+    private void ReslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReslutActionPerformed
+        // TODO add your handling code here:
+        
+        //Initalise Text
+        age_Error.setText(" ");
+        w_Error.setText(" ");
+        LastDon_Erorr.setText(" ");
+        Antibiotic_Erorr.setText(" ");
+        
+        boolean validage = checkAge();
+        boolean validweight = checkWeight();
+        boolean vaildmonth = checkLastDonation();
+        boolean validans= checkantibiotics();
+
+        //-------------------------------Combine----------------------------------//
+        boolean Validinfo = validweight && vaildmonth && validans&&validage;
+
+        //--------------------------------Result----------------------------------//
+        //if Result is true, go Center
+        if (Validinfo == true) {
+            JOptionPane j= new JOptionPane();
+            j.showMessageDialog(null, "Congratulation! You can Donate");
+            Homepage H = new Homepage();
+            H.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_ReslutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,6 +344,7 @@ public class Requirements extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Requirements.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -298,29 +353,193 @@ public class Requirements extends javax.swing.JFrame {
             }
         });
     }
+      
+    
+    private boolean checkAge() {
+
+    //------------------------Initalise------------------------//
+        boolean valid = true;
+        int age = Integer.parseInt(AgeSpinner.getValue().toString());
+
+    //--------------------------Case1--------------------------//
+   
+        //if Age is Equal to nothing
+        if (age == 0) {
+            age_Error.setText("Enter Age");
+            age_Error.setForeground(Color.red);
+            valid = false;
+        } 
+        
+    //--------------------------Case2--------------------------//
+        
+        //Must be Older  
+        else if (age < 18) {
+            age_Error.setText("Older than 18");
+            age_Error.setForeground(Color.red);
+            valid = false;
+        } 
+        
+    //--------------------------Case3--------------------------//
+        
+        //Must be Younger 
+        else if (age > 60) {
+            age_Error.setText("Younger than 60");
+            age_Error.setForeground(Color.red);
+            valid = false;
+        } 
+        
+    //--------------------------Case4--------------------------//
+        
+        //Age between 18 and 60
+        else {
+            valid= true;
+        }
+        
+    //-------------------------Return--------------------------//
+        return valid;
+    }
+         
+    
+    private boolean checkWeight() {
+
+    //------------------------Initalise------------------------//
+        boolean valid = true;
+        int weight = Integer.parseInt(WeightSpinner.getValue().toString());
+
+    //--------------------------Case1--------------------------//
+   
+        //if Age is Equal to nothing
+        if (weight == 0) {
+            w_Error.setText("Enter Weight");
+            w_Error.setForeground(Color.red);
+            valid = false;
+        } 
+        
+    //--------------------------Case2--------------------------//
+        
+        //Age must be digit 
+        else if (weight < 50) {
+            w_Error.setText("50kg or above");
+            w_Error.setForeground(Color.red);
+            valid = false;
+        } 
+        
+    //--------------------------Case3--------------------------//
+        
+        //Weight above 50
+        else  {
+            valid = true;
+        }
+        
+    //-------------------------Return--------------------------//
+        return valid;
+    }
+    
+    private boolean checkLastDonation() {
+        
+    //------------------------Initalise------------------------//
+        boolean valid = true;
+        String month = MonthComboBox.getSelectedItem().toString();
+        String year = YearComboBox.getSelectedItem().toString();
+        
+    //--------------------------Case1--------------------------//
+    
+        //No value entered
+        if(month.equals("Month") || year.equals("Year")){
+            LastDon_Erorr.setText("Enter The Date");
+            LastDon_Erorr.setForeground(Color.red);
+            valid = false;
+        }
+        
+    //--------------------------Case2--------------------------//
+        else{
+            int monthInt =Integer.parseInt(month);
+            int yearInt =Integer.parseInt(year);
+        
+        //------------------------Case2.1---------------------//
+        
+            //if before years, then more than 3 month
+            if (yearInt < 2022) {
+                valid = true;
+            } 
+          
+        //------------------------Case2.2---------------------//
+            //Same year, Month condtion
+            else{
+                valid = false;
+            }
+        }
+        
+    //-------------------------Return--------------------------//
+        return valid;
+        
+    }
+             
+    private boolean checkantibiotics() {
+        
+    //------------------------Initalise------------------------//
+        boolean valid = true;
+        Boolean y= yes.isSelected();
+        Boolean n = No.isSelected();
+        
+    //--------------------------Case1--------------------------//
+    
+        //if no choice
+        if (!y && !n) {
+            Antibiotic_Erorr.setText("Select a Choice");
+            Antibiotic_Erorr.setForeground(Color.red);
+            valid = false;
+        } 
+       
+    //--------------------------Case2--------------------------//
+        
+        //If yes choice selected
+        else if(y) {
+            Antibiotic_Erorr.setText("Must stop for a while");
+            Antibiotic_Erorr.setForeground(Color.red);
+            valid = false;
+        } 
+        
+    //--------------------------Case2--------------------------//
+        
+        //If no choice selected
+        else {
+            valid = true;
+        }
+        
+    //-------------------------Return--------------------------//
+        return valid;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AgeLabel;
+    private javax.swing.JSpinner AgeSpinner;
+    private javax.swing.JLabel Antibiotic_Erorr;
+    private javax.swing.JLabel AntibioticsLabel;
     private javax.swing.JLabel BatteryIcon;
     private javax.swing.JLabel HomepageText;
+    private javax.swing.JLabel LastDonLabel;
+    private javax.swing.JLabel LastDon_Erorr;
+    private javax.swing.JLabel LineDown;
+    private javax.swing.JLabel LineUp;
     private javax.swing.JLabel MenuIcon;
+    private javax.swing.JComboBox<String> MonthComboBox;
     private javax.swing.JLabel NetworkIcon;
+    private javax.swing.JRadioButton No;
     private javax.swing.JPanel PhoneInfoPanel;
     private javax.swing.JPanel PinkBackground;
-    private javax.swing.JLabel ReqIcon;
-    private javax.swing.JLabel ReqText;
-    private javax.swing.JLabel ReqText1;
-    private javax.swing.JLabel ReqText2;
-    private javax.swing.JLabel ReqText3;
-    private javax.swing.JLabel ReqText4;
-    private javax.swing.JLabel ReqText5;
-    private javax.swing.JLabel ReqText7;
-    private javax.swing.JLabel ReqText8;
-    private javax.swing.JLabel ReqText9;
-    private javax.swing.JPanel ReqTextBG;
+    private javax.swing.JLabel QuizIcon;
+    private javax.swing.JButton Reslut;
     private javax.swing.JLabel Text;
     private javax.swing.JLabel TimeIcon;
     private javax.swing.JPanel UbMenu;
+    private javax.swing.JLabel WeightLabel;
+    private javax.swing.JSpinner WeightSpinner;
     private javax.swing.JLabel WiFiIcon;
+    private javax.swing.JComboBox<String> YearComboBox;
+    private javax.swing.JLabel age_Error;
     private javax.swing.JLabel backLabel;
+    private javax.swing.JLabel w_Error;
+    private javax.swing.JRadioButton yes;
     // End of variables declaration//GEN-END:variables
 }
