@@ -6,33 +6,31 @@
 package Interfaces;
 
 import static Interfaces.Centers.center;
-import static Interfaces.Date.date;
-import static Interfaces.Time.time;
-import static Interfaces.LogIn.u;
 import java.awt.Image;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-
 /**
  *
  * @author hp
  */
-public class Booking extends javax.swing.JFrame {
+public class Date extends javax.swing.JFrame {
 
     /**
-     * Creates new form Booking
+     * Creates new form KAHCenter
      */
-    public Booking() {
+    
+    public static String date;
+    
+    public Date() {
         initComponents();
         
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);        
-       
+        
+        ImageIcon cal = new ImageIcon("Icon\\calendar.png");
+        ImageIcon calS = new ImageIcon(cal.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH));
+        calIcon.setIcon(calS);
+        
         ImageIcon Battery = new ImageIcon("Icon\\battery-status.png");
         ImageIcon BatteryS = new ImageIcon(Battery.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         BatteryIcon.setIcon(BatteryS);
@@ -44,28 +42,11 @@ public class Booking extends javax.swing.JFrame {
         ImageIcon Network = new ImageIcon("Icon\\signal.png");
         ImageIcon NetworkS = new ImageIcon(Network.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         NetworkIcon.setIcon(NetworkS);
-        
-        ImageIcon Barcode = new ImageIcon("Icon\\barcode.png");
-        ImageIcon BarcodeS = new ImageIcon(Barcode.getImage().getScaledInstance(170, 150, Image.SCALE_SMOOTH));
-        BarcodeIcon.setIcon(BarcodeS);
-        
-        TimeCText.setText(time + " at " + center + " center");
-        DateText.setText("on: " + date + " Jan 2022");
-        
-        // Add Appointment to the user
-        Appointment a = new Appointment(date, time, center);
-        LogIn.u.getMyAppointment().add(a);
-        
-        // write Appointment to file
-        try( BufferedWriter bw = new BufferedWriter(new FileWriter("Appoinments\\"+u.getID()+".txt", true)) ){
-            
-            // Write appointment informations on the user fila
-            
-        } catch (IOException ex) {
-            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        CertainCenter.setText(center + " Center");
+
+        //DayComboBox.getItems().addAll()
+                //(new Int{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30});
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,17 +61,23 @@ public class Booking extends javax.swing.JFrame {
         UbMenu = new javax.swing.JPanel();
         Text = new javax.swing.JLabel();
         MenuIcon = new javax.swing.JLabel();
-        BookingText = new javax.swing.JLabel();
-        DateText = new javax.swing.JLabel();
+        NextLabel = new javax.swing.JLabel();
+        calIcon = new javax.swing.JLabel();
+        CertainCenter = new javax.swing.JLabel();
+        HomepageText2 = new javax.swing.JLabel();
+        BackLabel = new javax.swing.JLabel();
+        HomepageText4 = new javax.swing.JLabel();
         PhoneInfoPanel = new javax.swing.JPanel();
         TimeIcon = new javax.swing.JLabel();
         BatteryIcon = new javax.swing.JLabel();
         WiFiIcon = new javax.swing.JLabel();
         NetworkIcon = new javax.swing.JLabel();
-        HomepageLabel = new javax.swing.JLabel();
-        TimeCText = new javax.swing.JLabel();
-        ThankLabel = new javax.swing.JLabel();
-        BarcodeIcon = new javax.swing.JLabel();
+        DayComboBox = new javax.swing.JComboBox<>();
+        MonthComboBox = new javax.swing.JComboBox<>();
+        DateLabel = new javax.swing.JLabel();
+        TimeLabel = new javax.swing.JLabel();
+        DayComboBox1 = new javax.swing.JComboBox<>();
+        DayComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,13 +95,33 @@ public class Booking extends javax.swing.JFrame {
 
         PinkBackground.add(UbMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 300, 50));
 
-        BookingText.setFont(new java.awt.Font("Book Antiqua", 1, 28)); // NOI18N
-        BookingText.setText("Booking Confirmed");
-        PinkBackground.add(BookingText, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+        NextLabel.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        NextLabel.setText("Next >");
+        PinkBackground.add(NextLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, -1, -1));
+        PinkBackground.add(calIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 100, 100));
 
-        DateText.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        DateText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PinkBackground.add(DateText, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 160, 20));
+        CertainCenter.setFont(new java.awt.Font("Book Antiqua", 1, 28)); // NOI18N
+        CertainCenter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PinkBackground.add(CertainCenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 120, 250, 60));
+
+        HomepageText2.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        HomepageText2.setForeground(new java.awt.Color(178, 169, 169));
+        HomepageText2.setText("_________________________");
+        PinkBackground.add(HomepageText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+
+        BackLabel.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        BackLabel.setText("< Back");
+        BackLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BackLabelMousePressed(evt);
+            }
+        });
+        PinkBackground.add(BackLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
+
+        HomepageText4.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        HomepageText4.setForeground(new java.awt.Color(178, 169, 169));
+        HomepageText4.setText("_________________________");
+        PinkBackground.add(HomepageText4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         PhoneInfoPanel.setBackground(new java.awt.Color(255, 255, 255));
         PhoneInfoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -156,23 +163,51 @@ public class Booking extends javax.swing.JFrame {
 
         PinkBackground.add(PhoneInfoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 20));
 
-        HomepageLabel.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        HomepageLabel.setText("< Homepage");
-        HomepageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                HomepageLabelMousePressed(evt);
+        DayComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
+        DayComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+        DayComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        DayComboBox.setFocusTraversalPolicyProvider(true);
+        DayComboBox.setName(""); // NOI18N
+        DayComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DayComboBoxActionPerformed(evt);
             }
         });
-        PinkBackground.add(HomepageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
+        PinkBackground.add(DayComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 70, 28));
 
-        TimeCText.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        TimeCText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PinkBackground.add(TimeCText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 200, 20));
+        MonthComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
+        MonthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        PinkBackground.add(MonthComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, 28));
 
-        ThankLabel.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        ThankLabel.setText("Thank You");
-        PinkBackground.add(ThankLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 110, 50));
-        PinkBackground.add(BarcodeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 250, 170, 150));
+        DateLabel.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
+        DateLabel.setText("Date: ");
+        PinkBackground.add(DateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        TimeLabel.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
+        TimeLabel.setText("Time: ");
+        PinkBackground.add(TimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, 20));
+
+        DayComboBox1.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
+        DayComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Minute", "00", "15", "30", "45" }));
+        DayComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        DayComboBox1.setFocusTraversalPolicyProvider(true);
+        DayComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DayComboBox1ActionPerformed(evt);
+            }
+        });
+        PinkBackground.add(DayComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 308, -1, 28));
+
+        DayComboBox2.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
+        DayComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hour", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        DayComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        DayComboBox2.setFocusTraversalPolicyProvider(true);
+        DayComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DayComboBox2ActionPerformed(evt);
+            }
+        });
+        PinkBackground.add(DayComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 308, 70, 28));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,12 +227,25 @@ public class Booking extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void HomepageLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomepageLabelMousePressed
+    private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
         // TODO add your handling code here:
         dispose();
-        Homepage H = new Homepage();
-        H.setVisible(true);
-    }//GEN-LAST:event_HomepageLabelMousePressed
+        Centers C = new Centers();
+        C.setVisible(true);
+    }//GEN-LAST:event_BackLabelMousePressed
+
+    private void DayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayComboBoxActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_DayComboBoxActionPerformed
+
+    private void DayComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DayComboBox2ActionPerformed
+
+    private void DayComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DayComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,39 +264,52 @@ public class Booking extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Date.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Date.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Date.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Date.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Booking().setVisible(true);
+                new Date().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BarcodeIcon;
+    private javax.swing.JLabel BackLabel;
     private javax.swing.JLabel BatteryIcon;
-    private javax.swing.JLabel BookingText;
-    private javax.swing.JLabel DateText;
-    private javax.swing.JLabel HomepageLabel;
+    private javax.swing.JLabel CertainCenter;
+    private javax.swing.JLabel DateLabel;
+    private javax.swing.JComboBox<String> DayComboBox;
+    private javax.swing.JComboBox<String> DayComboBox1;
+    private javax.swing.JComboBox<String> DayComboBox2;
+    private javax.swing.JLabel HomepageText2;
+    private javax.swing.JLabel HomepageText4;
     private javax.swing.JLabel MenuIcon;
+    private javax.swing.JComboBox<String> MonthComboBox;
     private javax.swing.JLabel NetworkIcon;
+    private javax.swing.JLabel NextLabel;
     private javax.swing.JPanel PhoneInfoPanel;
     private javax.swing.JPanel PinkBackground;
     private javax.swing.JLabel Text;
-    private javax.swing.JLabel ThankLabel;
-    private javax.swing.JLabel TimeCText;
     private javax.swing.JLabel TimeIcon;
+    private javax.swing.JLabel TimeLabel;
     private javax.swing.JPanel UbMenu;
     private javax.swing.JLabel WiFiIcon;
+    private javax.swing.JLabel calIcon;
     // End of variables declaration//GEN-END:variables
 }

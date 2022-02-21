@@ -76,9 +76,6 @@ public class Centers extends javax.swing.JFrame {
         NextLabel.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         NextLabel.setText("Next >");
         NextLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NextLabelMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 NextLabelMousePressed(evt);
             }
@@ -269,10 +266,6 @@ public class Centers extends javax.swing.JFrame {
             D.setVisible(true);
         }
     }//GEN-LAST:event_NextLabelMousePressed
-
-    private void NextLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextLabelMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NextLabelMouseClicked
 
     /**
      * @param args the command line arguments

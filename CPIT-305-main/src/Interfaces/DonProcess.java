@@ -5,28 +5,19 @@
  */
 package Interfaces;
 
-import static Interfaces.Centers.center;
-import static Interfaces.Date.date;
-import static Interfaces.Time.time;
-import static Interfaces.LogIn.u;
 import java.awt.Image;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
  *
  * @author hp
  */
-public class Booking extends javax.swing.JFrame {
+public class DonProcess extends javax.swing.JFrame {
 
     /**
-     * Creates new form Booking
+     * Creates new form Donation
      */
-    public Booking() {
+    public DonProcess() {
         initComponents();
         
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
@@ -45,27 +36,13 @@ public class Booking extends javax.swing.JFrame {
         ImageIcon NetworkS = new ImageIcon(Network.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         NetworkIcon.setIcon(NetworkS);
         
-        ImageIcon Barcode = new ImageIcon("Icon\\barcode.png");
-        ImageIcon BarcodeS = new ImageIcon(Barcode.getImage().getScaledInstance(170, 150, Image.SCALE_SMOOTH));
-        BarcodeIcon.setIcon(BarcodeS);
+        ImageIcon DonProcess = new ImageIcon("Icon\\DonProcess.jpeg");
+        ImageIcon DonProcessS = new ImageIcon(DonProcess.getImage().getScaledInstance(260, 340, Image.SCALE_SMOOTH));
+        DonationPicture.setIcon(DonProcessS);
         
-        TimeCText.setText(time + " at " + center + " center");
-        DateText.setText("on: " + date + " Jan 2022");
         
-        // Add Appointment to the user
-        Appointment a = new Appointment(date, time, center);
-        LogIn.u.getMyAppointment().add(a);
         
-        // write Appointment to file
-        try( BufferedWriter bw = new BufferedWriter(new FileWriter("Appoinments\\"+u.getID()+".txt", true)) ){
-            
-            // Write appointment informations on the user fila
-            
-        } catch (IOException ex) {
-            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,16 +58,13 @@ public class Booking extends javax.swing.JFrame {
         Text = new javax.swing.JLabel();
         MenuIcon = new javax.swing.JLabel();
         BookingText = new javax.swing.JLabel();
-        DateText = new javax.swing.JLabel();
         PhoneInfoPanel = new javax.swing.JPanel();
         TimeIcon = new javax.swing.JLabel();
         BatteryIcon = new javax.swing.JLabel();
         WiFiIcon = new javax.swing.JLabel();
         NetworkIcon = new javax.swing.JLabel();
-        HomepageLabel = new javax.swing.JLabel();
-        TimeCText = new javax.swing.JLabel();
-        ThankLabel = new javax.swing.JLabel();
-        BarcodeIcon = new javax.swing.JLabel();
+        BackLabel = new javax.swing.JLabel();
+        DonationPicture = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,12 +83,8 @@ public class Booking extends javax.swing.JFrame {
         PinkBackground.add(UbMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 300, 50));
 
         BookingText.setFont(new java.awt.Font("Book Antiqua", 1, 28)); // NOI18N
-        BookingText.setText("Booking Confirmed");
-        PinkBackground.add(BookingText, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
-
-        DateText.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        DateText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PinkBackground.add(DateText, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 160, 20));
+        BookingText.setText("Donation Process");
+        PinkBackground.add(BookingText, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         PhoneInfoPanel.setBackground(new java.awt.Color(255, 255, 255));
         PhoneInfoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -156,23 +126,15 @@ public class Booking extends javax.swing.JFrame {
 
         PinkBackground.add(PhoneInfoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 20));
 
-        HomepageLabel.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        HomepageLabel.setText("< Homepage");
-        HomepageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        BackLabel.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        BackLabel.setText("< Back");
+        BackLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                HomepageLabelMousePressed(evt);
+                BackLabelMousePressed(evt);
             }
         });
-        PinkBackground.add(HomepageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
-
-        TimeCText.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        TimeCText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PinkBackground.add(TimeCText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 200, 20));
-
-        ThankLabel.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        ThankLabel.setText("Thank You");
-        PinkBackground.add(ThankLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 110, 50));
-        PinkBackground.add(BarcodeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 250, 170, 150));
+        PinkBackground.add(BackLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
+        PinkBackground.add(DonationPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 260, 340));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,12 +154,12 @@ public class Booking extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void HomepageLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomepageLabelMousePressed
+    private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
         // TODO add your handling code here:
         dispose();
         Homepage H = new Homepage();
         H.setVisible(true);
-    }//GEN-LAST:event_HomepageLabelMousePressed
+    }//GEN-LAST:event_BackLabelMousePressed
 
     /**
      * @param args the command line arguments
@@ -216,37 +178,37 @@ public class Booking extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DonProcess.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DonProcess.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DonProcess.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DonProcess.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Booking().setVisible(true);
+                new DonProcess().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BarcodeIcon;
+    private javax.swing.JLabel BackLabel;
     private javax.swing.JLabel BatteryIcon;
     private javax.swing.JLabel BookingText;
-    private javax.swing.JLabel DateText;
-    private javax.swing.JLabel HomepageLabel;
+    private javax.swing.JLabel DonationPicture;
     private javax.swing.JLabel MenuIcon;
     private javax.swing.JLabel NetworkIcon;
     private javax.swing.JPanel PhoneInfoPanel;
     private javax.swing.JPanel PinkBackground;
     private javax.swing.JLabel Text;
-    private javax.swing.JLabel ThankLabel;
-    private javax.swing.JLabel TimeCText;
     private javax.swing.JLabel TimeIcon;
     private javax.swing.JPanel UbMenu;
     private javax.swing.JLabel WiFiIcon;

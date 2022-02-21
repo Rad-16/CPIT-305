@@ -5,8 +5,16 @@
  */
 package Interfaces;
 
+import static Interfaces.startApp.users;
 import java.awt.Color;
 import java.awt.Image;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -19,10 +27,10 @@ public class LogIn extends javax.swing.JFrame {
      * Creates new form LogIn
      */
     boolean validInfo;
-    public static User u;
     
     public LogIn() {
         initComponents();
+       
     //---------------------------------Icons----------------------------------//
     
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
@@ -99,6 +107,12 @@ public class LogIn extends javax.swing.JFrame {
         IDText.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         IDText.setText("ID/Iqama:");
         PinkBackground.add(IDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+
+        IDField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDFieldActionPerformed(evt);
+            }
+        });
         PinkBackground.add(IDField, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 130, -1));
 
         Enter.setBackground(new java.awt.Color(255, 255, 255));
@@ -200,7 +214,7 @@ public class LogIn extends javax.swing.JFrame {
     //-------------------------------Combine----------------------------------//
         validInfo = validPassword && validID && vaildExist;
         
-    //--------------------------------Reslut----------------------------------//
+    //--------------------------------Result----------------------------------//
         //if Result is true, go Homepage
         if (validInfo == true) {
             Homepage H = new Homepage();
@@ -219,29 +233,33 @@ public class LogIn extends javax.swing.JFrame {
         
     }//GEN-LAST:event_SignUpMousePressed
 
+    private void IDFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDFieldActionPerformed
+
     private boolean isExist(){
 
     //------------------------Initalise------------------------//
+    
         //Get user info. from labels
         String id = IDField.getText();
-        String password = new String(Pass.getPassword());
-
+        String password = new String (Pass.getPassword());
+                
         //make user object
-        User userTemp = new User(id, password);
-
-        //-------------------------Search--------------------------//
+        User u = new User(id, password);
+        
+    //-------------------------Search--------------------------//
         //Search for the user
-        userTemp = User.search(userTemp);
-
-        //----------------------Search Result----------------------//
+        u = User.search(u, users);
+        
+    //----------------------Search Result----------------------//
         //if the user info not found
-        if (userTemp == null) {
+        if (u == null) {
             UserExisted.setText("Not Found");
             return false;
         }
-
-        //--------------------------Return-------------------------//
-        u = new User(userTemp.getID(), userTemp.getPassword());
+        
+    //--------------------------Return-------------------------//
         return true;
     }
     
