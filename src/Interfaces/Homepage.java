@@ -5,8 +5,10 @@
  */
 package Interfaces;
 
+import static Interfaces.LogIn.u;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -200,9 +202,15 @@ public class Homepage extends javax.swing.JFrame {
 
     private void CenChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CenChoiceActionPerformed
         // TODO add your handling code here:
-        dispose();
-        Centers C = new Centers();
-        C.setVisible(true);
+        
+        if(!u.isEligible()){
+            JOptionPane j= new JOptionPane();
+            j.showMessageDialog(null, "Sorry, you are not Eligible");
+        }else{
+            dispose();
+            Centers C = new Centers();
+            C.setVisible(true);
+        }        
     }//GEN-LAST:event_CenChoiceActionPerformed
 
     /**

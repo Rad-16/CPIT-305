@@ -5,8 +5,10 @@
  */
 package Interfaces;
 
+import static Interfaces.LogIn.u;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,6 +40,7 @@ public class Centers extends javax.swing.JFrame {
         ImageIcon Network = new ImageIcon("Icon\\signal.png");
         ImageIcon NetworkS = new ImageIcon(Network.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         NetworkIcon.setIcon(NetworkS);
+        
     }
 
     /**

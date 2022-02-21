@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import static Interfaces.LogIn.u;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ButtonGroup;
@@ -312,6 +313,7 @@ public class Requirements extends javax.swing.JFrame {
         if (Validinfo == true) {
             JOptionPane j= new JOptionPane();
             j.showMessageDialog(null, "Congratulation! You can Donate");
+            u.setEligible(true);
             Homepage H = new Homepage();
             H.setVisible(true);
             this.dispose();
