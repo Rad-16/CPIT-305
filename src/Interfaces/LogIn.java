@@ -9,10 +9,6 @@ import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author hp
- */
 public class LogIn extends javax.swing.JFrame {
 
     /**
