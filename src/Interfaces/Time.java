@@ -6,7 +6,7 @@
 package Interfaces;
 
 import static Interfaces.Centers.center;
-import static Interfaces.Date.date;
+import static Interfaces.Date_Time.date;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -20,7 +20,7 @@ public class Time extends javax.swing.JFrame {
      * Creates new form Time
      */
     
-    public static String time;
+    public static String time_delete;
     
     public Time() {
         initComponents();
@@ -294,7 +294,7 @@ public class Time extends javax.swing.JFrame {
 
     private void T8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T8MousePressed
         // TODO add your handling code here:
-        time = "8:00";
+        time_delete = "8:00";
         dispose();
         Booking B = new Booking();
         B.setVisible(true);
@@ -303,13 +303,13 @@ public class Time extends javax.swing.JFrame {
     private void backLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelMousePressed
         // TODO add your handling code here:
         dispose();
-        Date D = new Date();
+        Date_Time D = new Date_Time();
         D.setVisible(true);
     }//GEN-LAST:event_backLabelMousePressed
 
     private void T10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T10MousePressed
         // TODO add your handling code here:
-        time = "10:00";
+        time_delete = "10:00";
         dispose();
         Booking B = new Booking();
         B.setVisible(true);
@@ -317,7 +317,7 @@ public class Time extends javax.swing.JFrame {
 
     private void T12_30MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T12_30MousePressed
         // TODO add your handling code here:
-        time = "12:30";
+        time_delete = "12:30";
         dispose();
         Booking B = new Booking();
         B.setVisible(true);
@@ -325,7 +325,7 @@ public class Time extends javax.swing.JFrame {
 
     private void T9_15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T9_15MousePressed
         // TODO add your handling code here:
-        time = "9:15";
+        time_delete = "9:15";
         dispose();
         Booking B = new Booking();
         B.setVisible(true);

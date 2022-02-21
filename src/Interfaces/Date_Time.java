@@ -6,46 +6,49 @@
 package Interfaces;
 
 import static Interfaces.Centers.center;
+import java.awt.Color;
 import java.awt.Image;
+import java.util.Date;
 import javax.swing.ImageIcon;
+
 /**
  *
  * @author hp
  */
-public class Date extends javax.swing.JFrame {
+public class Date_Time extends javax.swing.JFrame {
 
     /**
      * Creates new form KAHCenter
      */
-    
     public static String date;
-    
-    public Date() {
+    public static String time;
+
+    public Date_Time() {
         initComponents();
-        
+
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
-        MenuIcon.setIcon(MenuS);        
-        
+        MenuIcon.setIcon(MenuS);
+
         ImageIcon cal = new ImageIcon("Icon\\calendar.png");
         ImageIcon calS = new ImageIcon(cal.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH));
         calIcon.setIcon(calS);
-        
+
         ImageIcon Battery = new ImageIcon("Icon\\battery-status.png");
         ImageIcon BatteryS = new ImageIcon(Battery.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         BatteryIcon.setIcon(BatteryS);
-        
+
         ImageIcon WiFi = new ImageIcon("Icon\\wifi.png");
         ImageIcon WiFiS = new ImageIcon(WiFi.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         WiFiIcon.setIcon(WiFiS);
-        
+
         ImageIcon Network = new ImageIcon("Icon\\signal.png");
         ImageIcon NetworkS = new ImageIcon(Network.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         NetworkIcon.setIcon(NetworkS);
         CertainCenter.setText(center + " Center");
 
         //DayComboBox.getItems().addAll()
-                //(new Int{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30});
+        //(new Int{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30});
     }
 
     /**
@@ -76,8 +79,10 @@ public class Date extends javax.swing.JFrame {
         MonthComboBox = new javax.swing.JComboBox<>();
         DateLabel = new javax.swing.JLabel();
         TimeLabel = new javax.swing.JLabel();
-        DayComboBox1 = new javax.swing.JComboBox<>();
-        DayComboBox2 = new javax.swing.JComboBox<>();
+        MinuteComboBox1 = new javax.swing.JComboBox<>();
+        HourComboBox2 = new javax.swing.JComboBox<>();
+        Date_Error = new javax.swing.JLabel();
+        Time_Error = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,6 +102,11 @@ public class Date extends javax.swing.JFrame {
 
         NextLabel.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         NextLabel.setText("Next >");
+        NextLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NextLabelMouseClicked(evt);
+            }
+        });
         PinkBackground.add(NextLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, -1, -1));
         PinkBackground.add(calIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 100, 100));
 
@@ -187,27 +197,35 @@ public class Date extends javax.swing.JFrame {
         TimeLabel.setText("Time: ");
         PinkBackground.add(TimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, 20));
 
-        DayComboBox1.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
-        DayComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Minute", "00", "15", "30", "45" }));
-        DayComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        DayComboBox1.setFocusTraversalPolicyProvider(true);
-        DayComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        MinuteComboBox1.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
+        MinuteComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Minute", "00", "15", "30", "45" }));
+        MinuteComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        MinuteComboBox1.setFocusTraversalPolicyProvider(true);
+        MinuteComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DayComboBox1ActionPerformed(evt);
+                MinuteComboBox1ActionPerformed(evt);
             }
         });
-        PinkBackground.add(DayComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 308, 80, 28));
+        PinkBackground.add(MinuteComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 308, 80, 28));
 
-        DayComboBox2.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
-        DayComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hour", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
-        DayComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        DayComboBox2.setFocusTraversalPolicyProvider(true);
-        DayComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        HourComboBox2.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
+        HourComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hour", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        HourComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        HourComboBox2.setFocusTraversalPolicyProvider(true);
+        HourComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DayComboBox2ActionPerformed(evt);
+                HourComboBox2ActionPerformed(evt);
             }
         });
-        PinkBackground.add(DayComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 308, 70, 28));
+        PinkBackground.add(HourComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 308, 70, 28));
+
+        Date_Error.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        Date_Error.setForeground(new java.awt.Color(255, 51, 51));
+        PinkBackground.add(Date_Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 120, 20));
+
+        Time_Error.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        Time_Error.setForeground(new java.awt.Color(255, 51, 51));
+        PinkBackground.add(Time_Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 120, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,24 +254,85 @@ public class Date extends javax.swing.JFrame {
 
     private void DayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayComboBoxActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_DayComboBoxActionPerformed
 
-    private void DayComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayComboBox2ActionPerformed
+    private void HourComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HourComboBox2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DayComboBox2ActionPerformed
+    }//GEN-LAST:event_HourComboBox2ActionPerformed
 
-    private void DayComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayComboBox1ActionPerformed
+    private void MinuteComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinuteComboBox1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DayComboBox1ActionPerformed
+    }//GEN-LAST:event_MinuteComboBox1ActionPerformed
 
-    private boolean checkDate(){
+    private void NextLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextLabelMouseClicked
+
+        if (checkInfo()) {
+            dispose();
+            Booking b = new Booking();
+            b.setVisible(true);
+        }
+    }//GEN-LAST:event_NextLabelMouseClicked
+
+    public boolean checkInfo() {
+        boolean valid = true;
+        Date_Error.setText("  ");
+        Time_Error.setText("  ");
+        Date d = new Date();
+
+        // if the user didn't choose 
+        if (DayComboBox.getSelectedIndex() == 0 || MonthComboBox.getSelectedIndex() == 0) {
+            Date_Error.setText("choose a date");
+            Date_Error.setForeground(Color.red);
+            valid = false;
+        } else {
+            
+            d.setDate((int) DayComboBox.getSelectedIndex());
+            d.setMonth((int) MonthComboBox.getSelectedIndex()-1);
+        }
         
-        // check date code
+        // if user choose a date on the past
+        if (!checkDate(d)) {
+            Date_Error.setText("choose a date on future");
+            Date_Error.setForeground(Color.red);
+            valid = false;
+        } else {
+            date =  d.getDate()+ ", "+MonthComboBox.getSelectedItem();
+        }
         
-        return false;
+        // if user didn't choose time
+        if (HourComboBox2.getSelectedIndex() == 0 || MinuteComboBox1.getSelectedIndex() == 0) {
+            Time_Error.setText("choose a time");
+            Time_Error.setForeground(Color.red);
+            valid = false;
+        } else {
+            time = HourComboBox2.getSelectedItem() + ":" + MinuteComboBox1.getSelectedItem();
+        }
+
+        return valid;
     }
-    
+
+// --------- check if selected date in past ---------
+    public boolean checkDate(Date selectedDate) {
+        boolean checker = true;
+
+        Date today = new Date();
+        int currentDay = today.getDate();
+        int currentMonth = today.getMonth();
+
+        int selectedDay = selectedDate.getDate();
+        int selectedMonth = selectedDate.getMonth();
+
+        if (currentDay == selectedDay && currentMonth == selectedMonth) {
+            checker = true;
+            
+        } else if (selectedDate.before(today)) {
+            checker = false;
+        }
+
+        return checker;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -271,14 +350,22 @@ public class Date extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Date.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Date_Time.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Date.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Date_Time.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Date.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Date_Time.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Date.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Date_Time.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -291,7 +378,7 @@ public class Date extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Date().setVisible(true);
+                new Date_Time().setVisible(true);
             }
         });
     }
@@ -301,12 +388,13 @@ public class Date extends javax.swing.JFrame {
     private javax.swing.JLabel BatteryIcon;
     private javax.swing.JLabel CertainCenter;
     private javax.swing.JLabel DateLabel;
+    private javax.swing.JLabel Date_Error;
     private javax.swing.JComboBox<String> DayComboBox;
-    private javax.swing.JComboBox<String> DayComboBox1;
-    private javax.swing.JComboBox<String> DayComboBox2;
     private javax.swing.JLabel HomepageText2;
     private javax.swing.JLabel HomepageText4;
+    private javax.swing.JComboBox<String> HourComboBox2;
     private javax.swing.JLabel MenuIcon;
+    private javax.swing.JComboBox<String> MinuteComboBox1;
     private javax.swing.JComboBox<String> MonthComboBox;
     private javax.swing.JLabel NetworkIcon;
     private javax.swing.JLabel NextLabel;
@@ -315,6 +403,7 @@ public class Date extends javax.swing.JFrame {
     private javax.swing.JLabel Text;
     private javax.swing.JLabel TimeIcon;
     private javax.swing.JLabel TimeLabel;
+    private javax.swing.JLabel Time_Error;
     private javax.swing.JPanel UbMenu;
     private javax.swing.JLabel WiFiIcon;
     private javax.swing.JLabel calIcon;

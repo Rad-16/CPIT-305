@@ -6,11 +6,12 @@
 package Interfaces;
 
 import static Interfaces.Centers.center;
-import static Interfaces.Date.date;
-import static Interfaces.Time.time;
+import static Interfaces.Date_Time.date;
+import static Interfaces.Date_Time.time;
 import static Interfaces.LogIn.u;
 import java.awt.Image;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -50,17 +51,20 @@ public class Booking extends javax.swing.JFrame {
         BarcodeIcon.setIcon(BarcodeS);
         
         TimeCText.setText(time + " at " + center + " center");
-        DateText.setText("on: " + date + " Jan 2022");
+        DateText.setText("on: " + date + " 2022");
         
         // Add Appointment to the user
         Appointment a = new Appointment(date, time, center);
         LogIn.u.getMyAppointment().add(a);
         
         // write Appointment to file
-        try( BufferedWriter bw = new BufferedWriter(new FileWriter("Appoinments\\"+u.getID()+".txt", true)) ){
+        File f = new File("Appoinments\\"+u.getID()+".txt");
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(f, true)) ){
             
             // Write appointment informations on the user fila
             
+            bw.write(date+"_"+time+"_"+center);
+            bw.newLine();
         } catch (IOException ex) {
             Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
         }

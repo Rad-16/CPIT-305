@@ -250,25 +250,25 @@ public class Centers extends javax.swing.JFrame {
         if(KAHChoice.isSelected()){
             center = "KAH";
             dispose();
-            Date D = new Date();
+            Date_Time D = new Date_Time();
             D.setVisible(true);
         }
         else if(IMCCenter.isSelected()){
             center = "IMC";
             dispose();
-            Date D = new Date();
+            Date_Time D = new Date_Time();
             D.setVisible(true);
         }
         else if(FakeehCenter.isSelected()){
             center = "Fakeeh";
             dispose();
-            Date D = new Date();
+            Date_Time D = new Date_Time();
             D.setVisible(true);
         }
         else if(KFAFHCenter.isSelected()){
             center = "KFAFH";
             dispose();
-            Date D = new Date();
+            Date_Time D = new Date_Time();
             D.setVisible(true);
         }
     }//GEN-LAST:event_NextLabelMousePressed
