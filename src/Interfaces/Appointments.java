@@ -47,16 +47,19 @@ public class Appointments extends javax.swing.JFrame {
         
         // Display user appointment
         File f = new File("Appoinments\\"+u.getID()+".txt");
+        u.setMyAppointment(new ArrayList<Appointment>());
+        
         try(BufferedReader br = new BufferedReader(new FileReader(f)) ){
            
              String s;
             while((s = br.readLine()) != null){
                 String[] info = s.split("_");
                 Appointment a = new Appointment(info[0], info[1], info[2]);
+                
                 u.getMyAppointment().add(a);
-                Display(u.getMyAppointment());
+                
             }
-            
+            Display(u.getMyAppointment());
         } catch (IOException ex) {
             Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
         }
