@@ -221,7 +221,7 @@ public class Date_Time extends javax.swing.JFrame {
 
         Date_Error.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
         Date_Error.setForeground(new java.awt.Color(255, 51, 51));
-        PinkBackground.add(Date_Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 120, 20));
+        PinkBackground.add(Date_Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 140, 20));
 
         Time_Error.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
         Time_Error.setForeground(new java.awt.Color(255, 51, 51));

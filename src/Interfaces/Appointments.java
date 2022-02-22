@@ -5,31 +5,25 @@
  */
 package Interfaces;
 
-import static Interfaces.LogIn.u;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author hp
  */
-public class Homepage extends javax.swing.JFrame {
+public class Appointments extends javax.swing.JFrame {
 
     /**
-     * Creates new form Homepage
+     * Creates new form Appointments1
      */
-    public Homepage() {
+    public Appointments() {
         initComponents();
         
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);
-        
-        ImageIcon BDon = new ImageIcon("Icon\\blood-donation.png");
-        ImageIcon BDonS = new ImageIcon(BDon.getImage().getScaledInstance(125, 125, Image.SCALE_SMOOTH));
-        BDonIcon.setIcon(BDonS);
-        
+
         ImageIcon Battery = new ImageIcon("Icon\\battery-status.png");
         ImageIcon BatteryS = new ImageIcon(Battery.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         BatteryIcon.setIcon(BatteryS);
@@ -37,10 +31,12 @@ public class Homepage extends javax.swing.JFrame {
         ImageIcon WiFi = new ImageIcon("Icon\\wifi.png");
         ImageIcon WiFiS = new ImageIcon(WiFi.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         WiFiIcon.setIcon(WiFiS);
-        
+
         ImageIcon Network = new ImageIcon("Icon\\signal.png");
         ImageIcon NetworkS = new ImageIcon(Network.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         NetworkIcon.setIcon(NetworkS);
+        
+        //AppointmentComboBox.addItem("Raghad");
     }
 
     /**
@@ -52,12 +48,8 @@ public class Homepage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         PinkBackground = new javax.swing.JPanel();
         HomepageText = new javax.swing.JLabel();
-        DonChoice = new javax.swing.JRadioButton();
-        ReqChoice = new javax.swing.JRadioButton();
-        CenChoice = new javax.swing.JRadioButton();
         BDonIcon = new javax.swing.JLabel();
         UbMenu = new javax.swing.JPanel();
         Text = new javax.swing.JLabel();
@@ -67,8 +59,9 @@ public class Homepage extends javax.swing.JFrame {
         BatteryIcon = new javax.swing.JLabel();
         WiFiIcon = new javax.swing.JLabel();
         NetworkIcon = new javax.swing.JLabel();
-        Appointment = new javax.swing.JRadioButton();
-        HomepageText4 = new javax.swing.JLabel();
+        Line = new javax.swing.JLabel();
+        AppointmentComboBox = new javax.swing.JComboBox<>();
+        BackLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,41 +69,8 @@ public class Homepage extends javax.swing.JFrame {
         PinkBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         HomepageText.setFont(new java.awt.Font("Book Antiqua", 1, 28)); // NOI18N
-        HomepageText.setText("Homepage");
-        PinkBackground.add(HomepageText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
-
-        DonChoice.setBackground(new java.awt.Color(255, 230, 230));
-        buttonGroup1.add(DonChoice);
-        DonChoice.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        DonChoice.setText("Donation Process");
-        DonChoice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DonChoiceActionPerformed(evt);
-            }
-        });
-        PinkBackground.add(DonChoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
-
-        ReqChoice.setBackground(new java.awt.Color(255, 230, 230));
-        buttonGroup1.add(ReqChoice);
-        ReqChoice.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        ReqChoice.setText("Requirement Quiz");
-        ReqChoice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReqChoiceActionPerformed(evt);
-            }
-        });
-        PinkBackground.add(ReqChoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
-
-        CenChoice.setBackground(new java.awt.Color(255, 230, 230));
-        buttonGroup1.add(CenChoice);
-        CenChoice.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        CenChoice.setText("Take Appointment");
-        CenChoice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CenChoiceActionPerformed(evt);
-            }
-        });
-        PinkBackground.add(CenChoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+        HomepageText.setText("Appointment");
+        PinkBackground.add(HomepageText, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 100, -1, -1));
         PinkBackground.add(BDonIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 130, 130));
 
         UbMenu.setBackground(new java.awt.Color(255, 204, 204));
@@ -164,21 +124,29 @@ public class Homepage extends javax.swing.JFrame {
 
         PinkBackground.add(PhoneInfoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 20));
 
-        Appointment.setBackground(new java.awt.Color(255, 230, 230));
-        buttonGroup1.add(Appointment);
-        Appointment.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        Appointment.setText("Appointment");
-        Appointment.addActionListener(new java.awt.event.ActionListener() {
+        Line.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        Line.setForeground(new java.awt.Color(178, 169, 169));
+        Line.setText("_________________________");
+        PinkBackground.add(Line, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 230, 30));
+
+        AppointmentComboBox.setBackground(new java.awt.Color(252, 246, 246));
+        AppointmentComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
+        AppointmentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Appointment" }));
+        AppointmentComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AppointmentActionPerformed(evt);
+                AppointmentComboBoxActionPerformed(evt);
             }
         });
-        PinkBackground.add(Appointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+        PinkBackground.add(AppointmentComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 220, 30));
 
-        HomepageText4.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        HomepageText4.setForeground(new java.awt.Color(178, 169, 169));
-        HomepageText4.setText("_________________________");
-        PinkBackground.add(HomepageText4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 105, 230, 30));
+        BackLabel.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        BackLabel.setText("< Back");
+        BackLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BackLabelMousePressed(evt);
+            }
+        });
+        PinkBackground.add(BackLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -204,43 +172,16 @@ public class Homepage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void DonChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonChoiceActionPerformed
+    private void AppointmentComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppointmentComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AppointmentComboBoxActionPerformed
+
+    private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
         // TODO add your handling code here:
         dispose();
-        DonProcess D = new DonProcess();
-        D.setVisible(true);
-    }//GEN-LAST:event_DonChoiceActionPerformed
-
-    private void ReqChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReqChoiceActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        Requirements R = new Requirements();
-        R.setVisible(true);
-    }//GEN-LAST:event_ReqChoiceActionPerformed
-
-    private void CenChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CenChoiceActionPerformed
-        // TODO add your handling code here:
-        
-        JOptionPane j= new JOptionPane();
-        
-        if(u.isEligible() == 0){
-            j.showMessageDialog(null, "Sorry, you are not Eligible to Donate");
-        }
-        
-        else if(u.isEligible() == -1){
-            j.showMessageDialog(null, "Take the reqiurement quiz first");
-        }
-        
-        else{
-            dispose();
-            Centers C = new Centers();
-            C.setVisible(true);
-        }        
-    }//GEN-LAST:event_CenChoiceActionPerformed
-
-    private void AppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppointmentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AppointmentActionPerformed
+        Homepage H = new Homepage();
+        H.setVisible(true);
+    }//GEN-LAST:event_BackLabelMousePressed
 
     /**
      * @param args the command line arguments
@@ -259,41 +200,39 @@ public class Homepage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Homepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Appointments.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Homepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Appointments.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Homepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Appointments.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Homepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Appointments.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Homepage().setVisible(true);
+                new Appointments().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton Appointment;
+    private javax.swing.JComboBox<String> AppointmentComboBox;
     private javax.swing.JLabel BDonIcon;
+    private javax.swing.JLabel BackLabel;
     private javax.swing.JLabel BatteryIcon;
-    private javax.swing.JRadioButton CenChoice;
-    private javax.swing.JRadioButton DonChoice;
     private javax.swing.JLabel HomepageText;
-    private javax.swing.JLabel HomepageText4;
+    private javax.swing.JLabel Line;
     private javax.swing.JLabel MenuIcon;
     private javax.swing.JLabel NetworkIcon;
     private javax.swing.JPanel PhoneInfoPanel;
     private javax.swing.JPanel PinkBackground;
-    private javax.swing.JRadioButton ReqChoice;
     private javax.swing.JLabel Text;
     private javax.swing.JLabel TimeIcon;
     private javax.swing.JPanel UbMenu;
     private javax.swing.JLabel WiFiIcon;
-    private javax.swing.ButtonGroup buttonGroup1;
     // End of variables declaration//GEN-END:variables
 }
