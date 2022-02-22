@@ -20,7 +20,7 @@ public class User {
     private String password;
     private ArrayList<Appointment> myAppointment = new ArrayList();
     private static ArrayList<User> users = new ArrayList();
-    private boolean Eligible;
+    private int Eligible = -1;
 
 //---------------------------Constructer--------------------------//
     public User(String ID, String password) {
@@ -59,7 +59,7 @@ public class User {
         return users;
     }
 
-    public boolean isEligible() {
+    public int isEligible() {
         return Eligible;
     }
     
@@ -81,7 +81,7 @@ public class User {
         User.users = users;
     }
 
-    public void setEligible(boolean Eligible) {
+    public void setEligible(int Eligible) {
         this.Eligible = Eligible;
     }
     

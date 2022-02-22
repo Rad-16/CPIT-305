@@ -203,10 +203,17 @@ public class Homepage extends javax.swing.JFrame {
     private void CenChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CenChoiceActionPerformed
         // TODO add your handling code here:
         
-        if(!u.isEligible()){
-            JOptionPane j= new JOptionPane();
-            j.showMessageDialog(null, "Sorry, you are not Eligible");
-        }else{
+        JOptionPane j= new JOptionPane();
+        
+        if(u.isEligible() == 0){
+            j.showMessageDialog(null, "Sorry, you are not Eligible to Donate");
+        }
+        
+        else if(u.isEligible() == -1){
+            j.showMessageDialog(null, "Take the reqiurement quiz first");
+        }
+        
+        else{
             dispose();
             Centers C = new Centers();
             C.setVisible(true);

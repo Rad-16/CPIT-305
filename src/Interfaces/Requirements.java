@@ -299,15 +299,22 @@ public class Requirements extends javax.swing.JFrame {
         boolean Validinfo = validweight && vaildmonth && validans&&validage;
 
         //--------------------------------Result----------------------------------//
+        
+        JOptionPane j= new JOptionPane();
+        
         //if Result is true, go Center
         if (Validinfo == true) {
-            JOptionPane j= new JOptionPane();
             j.showMessageDialog(null, "Congratulation! You can Donate");
-            u.setEligible(true);
-            Homepage H = new Homepage();
+            u.setEligible(1);
+        } else{
+            u.setEligible(0);
+            j.showMessageDialog(null, "Sorry, you are not Eligible to Donate");
+        }
+        
+        Homepage H = new Homepage();
             H.setVisible(true);
             this.dispose();
-        }
+            
     }//GEN-LAST:event_ReslutActionPerformed
 
     private void LastDonComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastDonComboBoxActionPerformed
