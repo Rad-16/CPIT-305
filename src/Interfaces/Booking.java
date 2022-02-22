@@ -55,7 +55,7 @@ public class Booking extends javax.swing.JFrame {
         
         // Add Appointment to the user
         Appointment a = new Appointment(date, time, center);
-        LogIn.u.getMyAppointment().add(a);
+        u.getMyAppointment().add(a);
         
         // write Appointment to file
         File f = new File("Appoinments\\"+u.getID()+".txt");

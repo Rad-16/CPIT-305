@@ -1,6 +1,5 @@
 package Interfaces;
 
-
 import java.util.ArrayList;
 
 /*
@@ -8,13 +7,12 @@ import java.util.ArrayList;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author renad
  */
 public class User {
-    
+
 //----------------------------Variables----------------------------//
     private String ID;
     private String password;
@@ -29,7 +27,7 @@ public class User {
     }
 
 //-------------------------Search Method--------------------------//
-    public static User search(User u){
+    public static User search(User u) {
         for (int i = 0; i < users.size(); i++) {
             if (u.getID().equals(users.get(i).getID()) && u.getPassword().equals(users.get(i).getPassword())) {
                 return u;
@@ -37,11 +35,11 @@ public class User {
         }
         return null;
     }
-    
-    public static void add(){
-        
+
+    public static void add() {
+
     }
-    
+
 //-----------------------------Getter-----------------------------//
     public String getID() {
         return ID;
@@ -62,7 +60,6 @@ public class User {
     public int isEligible() {
         return Eligible;
     }
-    
 
 //-----------------------------Setter-----------------------------//
     public void setID(String ID) {
@@ -84,7 +81,5 @@ public class User {
     public void setEligible(int Eligible) {
         this.Eligible = Eligible;
     }
-    
-    
-    
-}//class
+
+}

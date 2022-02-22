@@ -277,7 +277,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Book Antiqua" size="20" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Appointment"/>
+            <Property name="text" type="java.lang.String" value="My Appointments"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AppointmentActionPerformed"/>

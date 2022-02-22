@@ -45,6 +45,10 @@ public class Appointment {
     public void setCenter(String center) {
         this.center = center;
     }
-    
+
+    @Override
+    public String toString() {
+        return "- " + time + ", at " + center + ", on " + date;
+    }
     
 }

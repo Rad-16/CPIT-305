@@ -5,8 +5,17 @@
  */
 package Interfaces;
 
+import static Interfaces.LogIn.u;
 import java.awt.Image;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -36,9 +45,22 @@ public class Appointments extends javax.swing.JFrame {
         ImageIcon NetworkS = new ImageIcon(Network.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         NetworkIcon.setIcon(NetworkS);
         
-        //AppointmentComboBox.addItem("Raghad");
+        // Display user appointment
+        File f = new File("Appoinments\\"+u.getID()+".txt");
+        try(BufferedReader br = new BufferedReader(new FileReader(f)) ){
+           
+             String s;
+            while((s = br.readLine()) != null){
+                String[] info = s.split("_");
+                Appointment a = new Appointment(info[0], info[1], info[2]);
+                u.getMyAppointment().add(a);
+                Display(u.getMyAppointment());
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -183,6 +205,18 @@ public class Appointments extends javax.swing.JFrame {
         H.setVisible(true);
     }//GEN-LAST:event_BackLabelMousePressed
 
+    public void Display(ArrayList<Appointment> a) {
+        JLabel[] list = new JLabel[a.size()];
+        int y = 230;
+        for (int i = 0; i < list.length; i++) {
+            list[i] = new JLabel(a.get(i).toString());
+            //list[i].setLocation(40, y+20);
+            list[i].setVisible(true);
+            PinkBackground.add(list[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(40, y+20));
+            y+=20;
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -235,4 +269,5 @@ public class Appointments extends javax.swing.JFrame {
     private javax.swing.JPanel UbMenu;
     private javax.swing.JLabel WiFiIcon;
     // End of variables declaration//GEN-END:variables
+
 }

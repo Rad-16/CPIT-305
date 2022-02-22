@@ -167,7 +167,7 @@ public class Homepage extends javax.swing.JFrame {
         Appointment.setBackground(new java.awt.Color(255, 230, 230));
         buttonGroup1.add(Appointment);
         Appointment.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        Appointment.setText("Appointment");
+        Appointment.setText("My Appointments");
         Appointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AppointmentActionPerformed(evt);
@@ -239,7 +239,9 @@ public class Homepage extends javax.swing.JFrame {
     }//GEN-LAST:event_CenChoiceActionPerformed
 
     private void AppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppointmentActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Appointments a = new Appointments();
+        a.setVisible(true);
     }//GEN-LAST:event_AppointmentActionPerformed
 
     /**

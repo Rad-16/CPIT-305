@@ -5,10 +5,8 @@
  */
 package Interfaces;
 
-import static Interfaces.LogIn.u;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 /**
  *
