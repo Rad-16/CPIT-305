@@ -1,31 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaces;
 
 import static Interfaces.LogIn.u;
+import static Interfaces.startApp.j;
 import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-/**
- *
- * @author hp
- */
 public class Appointments extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Appointments1
-     */
     public Appointments() {
         initComponents();
         
@@ -51,7 +38,7 @@ public class Appointments extends javax.swing.JFrame {
         
         try(BufferedReader br = new BufferedReader(new FileReader(f)) ){
            
-             String s;
+            String s;
             while((s = br.readLine()) != null){
                 String[] info = s.split("_");
                 Appointment a = new Appointment(info[0], info[1], info[2]);
@@ -60,8 +47,11 @@ public class Appointments extends javax.swing.JFrame {
                 
             }
             Display(u.getMyAppointment());
-        } catch (IOException ex) {
-            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+            
+        } 
+        
+        catch (IOException ex) {
+            j.showMessageDialog(null, "There is an IO Erorr");
         }
     }
     /**
@@ -202,21 +192,26 @@ public class Appointments extends javax.swing.JFrame {
     }//GEN-LAST:event_AppointmentComboBoxActionPerformed
 
     private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
-        // TODO add your handling code here:
+
         dispose();
         Homepage H = new Homepage();
         H.setVisible(true);
+        
     }//GEN-LAST:event_BackLabelMousePressed
 
     public void Display(ArrayList<Appointment> a) {
+        
         JLabel[] list = new JLabel[a.size()];
+        
         int y = 230;
         for (int i = 0; i < list.length; i++) {
+            
             list[i] = new JLabel(a.get(i).toString());
             //list[i].setLocation(40, y+20);
             list[i].setVisible(true);
-            PinkBackground.add(list[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(40, y+20));
-            y+=20;
+            PinkBackground.add(list[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(40, y + 20));
+            y += 20;
+            
         }
     }
     

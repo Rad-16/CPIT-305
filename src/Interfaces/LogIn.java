@@ -1,26 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaces;
 
+import static Interfaces.startApp.out;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class LogIn extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LogIn
-     */
     boolean validInfo;
     public static User u;
     
     public LogIn() {
         initComponents();
+        
     //---------------------------------Icons----------------------------------//
-    
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);
@@ -199,9 +192,11 @@ public class LogIn extends javax.swing.JFrame {
     //--------------------------------Reslut----------------------------------//
         //if Result is true, go Homepage
         if (validInfo == true) {
+            out.println(u.getID());
+            System.out.println(u.getID() + " Connect To The Server");
             Homepage H = new Homepage();
             H.setVisible(true);
-            this.dispose();
+            this.dispose();                     
         }
         
     }//GEN-LAST:event_EnterActionPerformed

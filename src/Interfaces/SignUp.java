@@ -1,38 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaces;
 
-
+import static Interfaces.startApp.j;
 import java.awt.Color;
 import java.awt.Image;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author hp
- */
 public class SignUp extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Homepage
-     */
-    
     boolean validInfo;
     
     public SignUp() {
         initComponents();
         
-//---------------------------------Icons----------------------------------//
-
+        //--------------------------------Icons---------------------------------
+        
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);
@@ -224,47 +209,67 @@ public class SignUp extends javax.swing.JFrame {
 
     private void EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterActionPerformed
 
-//--------------------------------Checks----------------------------------//
+    //--------------------------------Checks----------------------------------//
         boolean validPassword = checkPassword();
-        boolean validEmail = checkID();
+        boolean validID = checkID();
 
-//-------------------------------Combine----------------------------------//
-        validInfo = validPassword && validEmail;
+    //-------------------------------Combine----------------------------------//
+        validInfo = validPassword && validID;
 
-//--------------------------------Reslut----------------------------------//
+    //--------------------------------Reslut----------------------------------//
         if (validInfo == true) {
             
             //Get User Info
             String ID = IDField.getText().trim();
-            String Password = new String (Pass.getPassword());
+            String Password = new String(Pass.getPassword());
             
-            //Add User to the array
-            User.getUsers().add(new User(ID, Password));
+            Connection con = null;
             
-            //try to write User Info. to the file
-            try (BufferedWriter out = new BufferedWriter(new FileWriter("Users.txt", true))) {
+            try {
+                // (1) driver for JDBC connections
+                Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+
+                // (2) path for database
+                String url = "C:\\Users\\hp\\Documents\\GitHub\\Users_Database.accdb";
+
+                // (3) ODBC connection string
+                String dbURL = "jdbc:ucanaccess://" + url;
+
+                // (4) create connection
+                con = DriverManager.getConnection(dbURL);
+
+                // (5) create statment object
+                Statement st = con.createStatement();
+
+                // (6) Excute
+                st.executeUpdate("INSERT INTO Users" + " VALUES(" + ID + "," + "'" + Password + "'"+ ")");
+
+                // (7) Close Connection
+                con.close();
                 
-                //Write User Info
-                out.write("\n" + ID + "_" + Password);
                 
-                //Open Login Interface
-                LogIn n = new LogIn();
-                n.setVisible(true);
-                this.dispose();
             } 
             
-            //File Exception
-            catch (FileNotFoundException ex) {
-                Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
-            } 
+        //-------------------------------Catches--------------------------------
             
-            //IO Exception
-            catch (IOException ex) {
-                Logger.getLogger(startApp.class.getName()).log(Level.SEVERE, null, ex);
+            //SQL Exception
+            catch (SQLException s) {
+                j.showMessageDialog(null, "There is an SQL Erorr: " + s.getMessage());
             }
+            
+            //Class Not Found Exception
+            catch (ClassNotFoundException ex) { 
+                j.showMessageDialog(null, "Class Not Found: " + ex.getMessage());
+            }
+            
+        //--------------------------------Login---------------------------------
+        
+            LogIn L = new LogIn();
+            L.setVisible(true);
+            this.dispose();
 
         }//if
-
+        
     }//GEN-LAST:event_EnterActionPerformed
 
     private void EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailActionPerformed
@@ -273,7 +278,8 @@ public class SignUp extends javax.swing.JFrame {
 
     private boolean checkPassword() {
 
-        //------------------------Initalise------------------------//
+    //------------------------Initalise------------------------//
+    
         boolean valid = true;
         String password = new String (Pass.getPassword());
         Password_Error.setText("");
@@ -287,7 +293,6 @@ public class SignUp extends javax.swing.JFrame {
             Password_Error.setForeground(Color.red);
 
             Pass.setText("");
-
         } 
     
     //--------------------------Cas2--------------------------//
@@ -314,7 +319,8 @@ public class SignUp extends javax.swing.JFrame {
     
     private boolean checkID() {
 
-        //------------------------Initalise------------------------//
+    //------------------------Initalise------------------------//
+    
         boolean valid = true;
         String ID = IDField.getText();
 

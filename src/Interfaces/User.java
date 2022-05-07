@@ -2,15 +2,6 @@ package Interfaces;
 
 import java.util.ArrayList;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author renad
- */
 public class User {
 
 //----------------------------Variables----------------------------//
@@ -82,4 +73,4 @@ public class User {
         this.Eligible = Eligible;
     }
 
-}
+}//class

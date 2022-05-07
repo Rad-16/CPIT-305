@@ -1,32 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaces;
 
 import static Interfaces.Centers.center;
 import static Interfaces.Date_Time.date;
 import static Interfaces.Date_Time.time;
 import static Interfaces.LogIn.u;
+import static Interfaces.startApp.j;
 import java.awt.Image;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author hp
- */
 public class Booking extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Booking
-     */
     public Booking() {
         initComponents();
         
@@ -58,15 +45,17 @@ public class Booking extends javax.swing.JFrame {
         u.getMyAppointment().add(a);
         
         // write Appointment to file
-        File f = new File("Appoinments\\"+u.getID()+".txt");
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(f, true)) ){
-            
+        File f = new File("Appoinments\\" + u.getID() + ".txt");
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(f, true))) {
+
             // Write appointment informations on the user fila
-            
-            bw.write(date+"_"+time+"_"+center);
+            bw.write(date + "_" + time + "_" + center);
             bw.newLine();
-        } catch (IOException ex) {
-            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+            
+        } 
+        
+        catch (IOException ex) {
+            j.showMessageDialog(null, "There is an IO Erorr");
         }
     }
     

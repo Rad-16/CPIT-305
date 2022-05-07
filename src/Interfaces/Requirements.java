@@ -1,26 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaces;
 
 import static Interfaces.LogIn.u;
+import static Interfaces.startApp.j;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
-/**
- *
- * @author hp
- */
 public class Requirements extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Requirements
-     */
     public Requirements() {
         
         initComponents();
@@ -47,9 +35,7 @@ public class Requirements extends javax.swing.JFrame {
         
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(yes); buttonGroup.add(No);
-        
-        
-        
+                
     }
 
     /**
@@ -267,10 +253,11 @@ public class Requirements extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelMousePressed
-        // TODO add your handling code here:
+
         dispose();
         Homepage H = new Homepage();
         H.setVisible(true);
+        
     }//GEN-LAST:event_backLabelMousePressed
 
     private void NoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoActionPerformed
@@ -282,7 +269,6 @@ public class Requirements extends javax.swing.JFrame {
     }//GEN-LAST:event_yesActionPerformed
 
     private void ReslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReslutActionPerformed
-        // TODO add your handling code here:
         
         //Initalise Text
         age_Error.setText(" ");
@@ -295,13 +281,11 @@ public class Requirements extends javax.swing.JFrame {
         boolean vaildmonth = checkLastDonation();
         boolean validans= checkantibiotics();
 
-        //-------------------------------Combine----------------------------------//
+    //-------------------------------Combine----------------------------------//
         boolean Validinfo = validweight && vaildmonth && validans&&validage;
 
-        //--------------------------------Result----------------------------------//
-        
-        JOptionPane j= new JOptionPane();
-        
+    //--------------------------------Result----------------------------------//
+                
         //if Result is true, go Center
         if (Validinfo == true) {
             j.showMessageDialog(null, "Congratulation! You can Donate");
@@ -312,9 +296,9 @@ public class Requirements extends javax.swing.JFrame {
         }
         
         Homepage H = new Homepage();
-            H.setVisible(true);
-            this.dispose();
-            
+        H.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_ReslutActionPerformed
 
     private void LastDonComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastDonComboBoxActionPerformed

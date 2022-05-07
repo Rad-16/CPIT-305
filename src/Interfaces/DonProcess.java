@@ -1,22 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaces;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author hp
- */
 public class DonProcess extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Donation
-     */
     public DonProcess() {
         initComponents();
         
@@ -39,9 +27,7 @@ public class DonProcess extends javax.swing.JFrame {
         ImageIcon DonProcess = new ImageIcon("Icon\\DonProcess.jpeg");
         ImageIcon DonProcessS = new ImageIcon(DonProcess.getImage().getScaledInstance(260, 340, Image.SCALE_SMOOTH));
         DonationPicture.setIcon(DonProcessS);
-        
-        
-        
+                
     }
 
     /**
@@ -155,10 +141,11 @@ public class DonProcess extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
-        // TODO add your handling code here:
+
         dispose();
         Homepage H = new Homepage();
         H.setVisible(true);
+        
     }//GEN-LAST:event_BackLabelMousePressed
 
     /**

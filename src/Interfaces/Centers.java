@@ -1,22 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaces;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author hp
- */
 public class Centers extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Centers
-     */
     
     public static String center;
     
@@ -237,14 +224,15 @@ public class Centers extends javax.swing.JFrame {
     }//GEN-LAST:event_FakeehCenterActionPerformed
 
     private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
-        // TODO add your handling code here:
+
         dispose();
         Homepage H = new Homepage();
         H.setVisible(true);
+        
     }//GEN-LAST:event_BackLabelMousePressed
 
     private void NextLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextLabelMousePressed
-        // TODO add your handling code here:
+
         if(KAHChoice.isSelected()){
             center = "KAH";
             dispose();
@@ -269,6 +257,7 @@ public class Centers extends javax.swing.JFrame {
             Date_Time D = new Date_Time();
             D.setVisible(true);
         }
+        
     }//GEN-LAST:event_NextLabelMousePressed
 
     private void NextLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextLabelMouseClicked

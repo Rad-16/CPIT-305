@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaces;
 
 import static Interfaces.Centers.center;
@@ -11,15 +6,8 @@ import java.awt.Image;
 import java.util.Date;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author hp
- */
 public class Date_Time extends javax.swing.JFrame {
 
-    /**
-     * Creates new form KAHCenter
-     */
     public static String date;
     public static String time;
 
@@ -47,8 +35,6 @@ public class Date_Time extends javax.swing.JFrame {
         NetworkIcon.setIcon(NetworkS);
         CertainCenter.setText(center + " Center");
 
-        //DayComboBox.getItems().addAll()
-        //(new Int{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30});
     }
 
     /**
@@ -246,10 +232,11 @@ public class Date_Time extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
-        // TODO add your handling code here:
+
         dispose();
         Centers C = new Centers();
         C.setVisible(true);
+        
     }//GEN-LAST:event_BackLabelMousePressed
 
     private void DayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayComboBoxActionPerformed
