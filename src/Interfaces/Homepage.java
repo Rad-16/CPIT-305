@@ -62,7 +62,13 @@ public class Homepage extends javax.swing.JFrame {
         HomepageText4 = new javax.swing.JLabel();
         Appointment1 = new javax.swing.JRadioButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle(u.getID());
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                Colse(evt);
+            }
+        });
 
         PinkBackground.setBackground(new java.awt.Color(255, 230, 230));
         PinkBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -256,10 +262,10 @@ public class Homepage extends javax.swing.JFrame {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 
             // (2) path for database
-            String url = "C:\\Users\\hp\\Documents\\GitHub\\Users_Database.accdb";
+            //String url = "C:\\Users\\hp\\Documents\\GitHub\\Users_Database.accdb";
 
             // (3) ODBC connection string
-            String dbURL = "jdbc:ucanaccess://" + url;
+            String dbURL = "jdbc:ucanaccess://Users_Database.accdb";
 
             // (4) create connection
             con = DriverManager.getConnection(dbURL);
@@ -285,6 +291,12 @@ public class Homepage extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_Appointment1ActionPerformed
+
+    private void Colse(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Colse
+        // Notify The Server When User Exit
+        Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
+        System.exit(0);
+    }//GEN-LAST:event_Colse
 
     /**
      * @param args the command line arguments

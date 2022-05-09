@@ -19,7 +19,13 @@ public class MultiThread implements Runnable {
              PrintWriter out = new PrintWriter(incoming.getOutputStream(), true);) {
             
             System.out.println("New Client Connect, ID: " + in.nextInt());
-                       
+            
+            while (in.hasNextLine()) {
+                    String str = in.nextLine();
+                    System.out.println(str);
+                    
+                }
+                
         } 
         
         catch (IOException ex) {

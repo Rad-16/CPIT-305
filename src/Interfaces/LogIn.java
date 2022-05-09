@@ -70,7 +70,12 @@ public class LogIn extends javax.swing.JFrame {
         UserExisted = new javax.swing.JLabel();
         Pass = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                Close(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PinkBackground.setBackground(new java.awt.Color(255, 230, 230));
@@ -209,6 +214,12 @@ public class LogIn extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_SignUpMousePressed
+
+    private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
+        // Notify The Server When User Exit
+        Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
+        System.exit(0);
+    }//GEN-LAST:event_Close
 
     private boolean isExist(){
 

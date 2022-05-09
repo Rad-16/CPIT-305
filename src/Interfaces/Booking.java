@@ -85,7 +85,13 @@ public class Booking extends javax.swing.JFrame {
         ThankLabel = new javax.swing.JLabel();
         BarcodeIcon = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle(u.getID());
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                Close(evt);
+            }
+        });
 
         PinkBackground.setBackground(new java.awt.Color(255, 230, 230));
         PinkBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -191,6 +197,12 @@ public class Booking extends javax.swing.JFrame {
         Homepage H = new Homepage();
         H.setVisible(true);
     }//GEN-LAST:event_HomepageLabelMousePressed
+
+    private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
+        // Notify The Server When User Exit
+        Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
+        System.exit(0);
+    }//GEN-LAST:event_Close
 
     /**
      * @param args the command line arguments

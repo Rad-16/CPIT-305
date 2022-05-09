@@ -76,7 +76,13 @@ public class Requirements extends javax.swing.JFrame {
         LastDon_Erorr = new javax.swing.JLabel();
         Antibiotic_Erorr = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle(u.getID());
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                Close(evt);
+            }
+        });
 
         PinkBackground.setBackground(new java.awt.Color(255, 230, 230));
         PinkBackground.setAutoscrolls(true);
@@ -304,6 +310,12 @@ public class Requirements extends javax.swing.JFrame {
     private void LastDonComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastDonComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LastDonComboBoxActionPerformed
+
+    private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
+        // Notify The Server When User Exit
+        Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
+        System.exit(0);
+    }//GEN-LAST:event_Close
 
     /**
      * @param args the command line arguments

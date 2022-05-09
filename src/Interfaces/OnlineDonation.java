@@ -45,10 +45,10 @@ public class OnlineDonation extends javax.swing.JFrame {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 
             // (2) path for database
-            String url = "C:\\Users\\hp\\Documents\\GitHub\\Users_Database.accdb";
+            //String url = "Users_Database.accdb";
 
             // (3) ODBC connection string
-            String dbURL = "jdbc:ucanaccess://" + url;
+            String dbURL = "jdbc:ucanaccess://Users_Database.accdb";
 
             // (4) create connection
             con = DriverManager.getConnection(dbURL);
@@ -114,7 +114,13 @@ public class OnlineDonation extends javax.swing.JFrame {
         Donate = new javax.swing.JButton();
         backLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle(u.getID());
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                Close(evt);
+            }
+        });
 
         PinkBackground.setBackground(new java.awt.Color(255, 230, 230));
         PinkBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -269,6 +275,8 @@ public class OnlineDonation extends javax.swing.JFrame {
                 
                 AddReq.setText(" ");
                 
+                // Notify The Server That a Client Added Request
+                Interfaces.startApp.out.println("Client " + u.getID() + " Add Donation Request");
             }//if
 
             //Add Dialog
@@ -312,6 +320,8 @@ public class OnlineDonation extends javax.swing.JFrame {
                     String query = "DELETE FROM Request WHERE ID = " + Requests.getSelectedValue();
                     int deleted = st.executeUpdate(query);
                     
+                    // Notify The Server
+                        Interfaces.startApp.out.println("Client " + u.getID() + " Donated to " + Requests.getSelectedValue());
                 }//try
                 
                 //SQL Exception
@@ -322,6 +332,8 @@ public class OnlineDonation extends javax.swing.JFrame {
                 //Reomve Request from ArrayList
                 for (int i = 0; i < clients.size(); i++) {
                     if (Requests.getSelectedValue() == clients.get(i)) {
+                        
+                        
                         clients.remove(clients.get(i));
                     }
                 }
@@ -353,6 +365,12 @@ public class OnlineDonation extends javax.swing.JFrame {
         H.setVisible(true);
         
     }//GEN-LAST:event_backLabelMousePressed
+
+    private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
+        // Notify The Server When User Exit
+        Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
+        System.exit(0);
+    }//GEN-LAST:event_Close
 
     public static void main(String args[]) {
        

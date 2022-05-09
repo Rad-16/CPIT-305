@@ -1,6 +1,7 @@
 package Interfaces;
 
 import static Interfaces.Centers.center;
+import static Interfaces.LogIn.u;
 import java.awt.Color;
 import java.awt.Image;
 import java.util.Date;
@@ -70,7 +71,13 @@ public class Date_Time extends javax.swing.JFrame {
         Date_Error = new javax.swing.JLabel();
         Time_Error = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle(u.getID());
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                Close(evt);
+            }
+        });
 
         PinkBackground.setBackground(new java.awt.Color(255, 230, 230));
         PinkBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -260,6 +267,12 @@ public class Date_Time extends javax.swing.JFrame {
             b.setVisible(true);
         }
     }//GEN-LAST:event_NextLabelMouseClicked
+
+    private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
+        // Notify The Server When User Exit
+        Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
+        System.exit(0);
+    }//GEN-LAST:event_Close
 
     public boolean checkInfo() {
         boolean valid = true;

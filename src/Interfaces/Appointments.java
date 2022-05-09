@@ -78,7 +78,13 @@ public class Appointments extends javax.swing.JFrame {
         AppointmentComboBox = new javax.swing.JComboBox<>();
         BackLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle(u.getID());
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                Close(evt);
+            }
+        });
 
         PinkBackground.setBackground(new java.awt.Color(255, 230, 230));
         PinkBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -147,11 +153,6 @@ public class Appointments extends javax.swing.JFrame {
         AppointmentComboBox.setBackground(new java.awt.Color(252, 246, 246));
         AppointmentComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         AppointmentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Appointment" }));
-        AppointmentComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AppointmentComboBoxActionPerformed(evt);
-            }
-        });
         PinkBackground.add(AppointmentComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 220, 30));
 
         BackLabel.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
@@ -187,10 +188,6 @@ public class Appointments extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AppointmentComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppointmentComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AppointmentComboBoxActionPerformed
-
     private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
 
         dispose();
@@ -198,6 +195,12 @@ public class Appointments extends javax.swing.JFrame {
         H.setVisible(true);
         
     }//GEN-LAST:event_BackLabelMousePressed
+
+    private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
+        // Notify The Server When User Exit
+        Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
+        System.exit(0);
+    }//GEN-LAST:event_Close
 
     public void Display(ArrayList<Appointment> a) {
         

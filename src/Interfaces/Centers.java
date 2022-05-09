@@ -1,5 +1,6 @@
 package Interfaces;
 
+import static Interfaces.LogIn.u;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -56,7 +57,13 @@ public class Centers extends javax.swing.JFrame {
         WiFiIcon = new javax.swing.JLabel();
         NetworkIcon = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle(u.getID());
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                Close(evt);
+            }
+        });
 
         PinkBackground.setBackground(new java.awt.Color(255, 230, 230));
         PinkBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -263,6 +270,12 @@ public class Centers extends javax.swing.JFrame {
     private void NextLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextLabelMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_NextLabelMouseClicked
+
+    private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
+        // Notify The Server When User Exit
+        Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
+        System.exit(0);
+    }//GEN-LAST:event_Close
 
     /**
      * @param args the command line arguments
