@@ -1,9 +1,11 @@
 package Interfaces;
 
+//Imports
 import static Interfaces.LogIn.u;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
+//class to Chhose a Center
 public class Centers extends javax.swing.JFrame {
     
     public static String center;
@@ -11,6 +13,8 @@ public class Centers extends javax.swing.JFrame {
     public Centers() {
         initComponents();
         
+    //----------------------------------Icons-----------------------------------
+    
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);
@@ -71,9 +75,6 @@ public class Centers extends javax.swing.JFrame {
         NextLabel.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         NextLabel.setText("Next >");
         NextLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NextLabelMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 NextLabelMousePressed(evt);
             }
@@ -85,44 +86,24 @@ public class Centers extends javax.swing.JFrame {
         buttonGroup1.add(KAHChoice);
         KAHChoice.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         KAHChoice.setText("KAH center         2km");
-        KAHChoice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KAHChoiceActionPerformed(evt);
-            }
-        });
         PinkBackground.add(KAHChoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
         IMCCenter.setBackground(new java.awt.Color(255, 230, 230));
         buttonGroup1.add(IMCCenter);
         IMCCenter.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         IMCCenter.setText("IMC center          9km");
-        IMCCenter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IMCCenterActionPerformed(evt);
-            }
-        });
         PinkBackground.add(IMCCenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
         KFAFHCenter.setBackground(new java.awt.Color(255, 230, 230));
         buttonGroup1.add(KFAFHCenter);
         KFAFHCenter.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         KFAFHCenter.setText("KFAFH center    30km");
-        KFAFHCenter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KFAFHCenterActionPerformed(evt);
-            }
-        });
         PinkBackground.add(KFAFHCenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
         FakeehCenter.setBackground(new java.awt.Color(255, 230, 230));
         buttonGroup1.add(FakeehCenter);
         FakeehCenter.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         FakeehCenter.setText("Fakeeh center     15km");
-        FakeehCenter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FakeehCenterActionPerformed(evt);
-            }
-        });
         PinkBackground.add(FakeehCenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
 
         CenterTitle.setFont(new java.awt.Font("Book Antiqua", 1, 28)); // NOI18N
@@ -213,23 +194,7 @@ public class Centers extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void KAHChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KAHChoiceActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_KAHChoiceActionPerformed
-
-    private void IMCCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IMCCenterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IMCCenterActionPerformed
-
-    private void KFAFHCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KFAFHCenterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_KFAFHCenterActionPerformed
-
-    private void FakeehCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FakeehCenterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FakeehCenterActionPerformed
-
+    //Method To Go To The HomePage
     private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
 
         dispose();
@@ -238,6 +203,7 @@ public class Centers extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BackLabelMousePressed
 
+    //Method To Go To The Next Page
     private void NextLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextLabelMousePressed
 
         if(KAHChoice.isSelected()){
@@ -267,14 +233,12 @@ public class Centers extends javax.swing.JFrame {
         
     }//GEN-LAST:event_NextLabelMousePressed
 
-    private void NextLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextLabelMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NextLabelMouseClicked
-
+    //Method To Notify The Server When User Exit
     private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
-        // Notify The Server When User Exit
+
         Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
         System.exit(0);
+        
     }//GEN-LAST:event_Close
 
     /**
@@ -332,4 +296,5 @@ public class Centers extends javax.swing.JFrame {
     private javax.swing.JLabel WiFiIcon;
     private javax.swing.ButtonGroup buttonGroup1;
     // End of variables declaration//GEN-END:variables
-}
+
+}//class

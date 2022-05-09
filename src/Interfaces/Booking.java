@@ -1,5 +1,6 @@
 package Interfaces;
 
+//Imports
 import static Interfaces.Centers.center;
 import static Interfaces.Date_Time.date;
 import static Interfaces.Date_Time.time;
@@ -12,11 +13,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.ImageIcon;
 
+//Class To Make Booking
 public class Booking extends javax.swing.JFrame {
 
     public Booking() {
         initComponents();
         
+    //----------------------------------Icons-----------------------------------
+    
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);        
@@ -37,6 +41,7 @@ public class Booking extends javax.swing.JFrame {
         ImageIcon BarcodeS = new ImageIcon(Barcode.getImage().getScaledInstance(170, 150, Image.SCALE_SMOOTH));
         BarcodeIcon.setIcon(BarcodeS);
         
+        //------------------------- Show Appointment -------------------------
         TimeCText.setText(time + " at " + center + " center");
         DateText.setText("on: " + date + " 2022");
         
@@ -57,6 +62,7 @@ public class Booking extends javax.swing.JFrame {
         catch (IOException ex) {
             j.showMessageDialog(null, "There is an IO Erorr");
         }
+        
     }
     
 
@@ -191,6 +197,7 @@ public class Booking extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Method To Go To The HomePage
     private void HomepageLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomepageLabelMousePressed
         // TODO add your handling code here:
         dispose();
@@ -198,10 +205,12 @@ public class Booking extends javax.swing.JFrame {
         H.setVisible(true);
     }//GEN-LAST:event_HomepageLabelMousePressed
 
+    //Method To Notify The Server When User Exit
     private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
-        // Notify The Server When User Exit
+        
         Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
         System.exit(0);
+        
     }//GEN-LAST:event_Close
 
     /**
@@ -256,4 +265,5 @@ public class Booking extends javax.swing.JFrame {
     private javax.swing.JPanel UbMenu;
     private javax.swing.JLabel WiFiIcon;
     // End of variables declaration//GEN-END:variables
-}
+
+}//class

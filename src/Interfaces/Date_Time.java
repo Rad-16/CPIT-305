@@ -1,5 +1,6 @@
 package Interfaces;
 
+//Imports
 import static Interfaces.Centers.center;
 import static Interfaces.LogIn.u;
 import java.awt.Color;
@@ -7,6 +8,7 @@ import java.awt.Image;
 import java.util.Date;
 import javax.swing.ImageIcon;
 
+//Class To Choose a Date For Appointment
 public class Date_Time extends javax.swing.JFrame {
 
     public static String date;
@@ -15,6 +17,8 @@ public class Date_Time extends javax.swing.JFrame {
     public Date_Time() {
         initComponents();
 
+    //----------------------------------Icons-----------------------------------
+    
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);
@@ -171,11 +175,6 @@ public class Date_Time extends javax.swing.JFrame {
         DayComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         DayComboBox.setFocusTraversalPolicyProvider(true);
         DayComboBox.setName(""); // NOI18N
-        DayComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DayComboBoxActionPerformed(evt);
-            }
-        });
         PinkBackground.add(DayComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 70, 28));
 
         MonthComboBox.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
@@ -194,22 +193,12 @@ public class Date_Time extends javax.swing.JFrame {
         MinuteComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Minute", "00", "15", "30", "45" }));
         MinuteComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         MinuteComboBox1.setFocusTraversalPolicyProvider(true);
-        MinuteComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MinuteComboBox1ActionPerformed(evt);
-            }
-        });
         PinkBackground.add(MinuteComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 308, 80, 28));
 
         HourComboBox2.setFont(new java.awt.Font("Book Antiqua", 0, 13)); // NOI18N
         HourComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hour", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
         HourComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         HourComboBox2.setFocusTraversalPolicyProvider(true);
-        HourComboBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HourComboBox2ActionPerformed(evt);
-            }
-        });
         PinkBackground.add(HourComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 308, 70, 28));
 
         Date_Error.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
@@ -238,6 +227,7 @@ public class Date_Time extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Method To Go To The HomePage
     private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
 
         dispose();
@@ -245,20 +235,8 @@ public class Date_Time extends javax.swing.JFrame {
         C.setVisible(true);
         
     }//GEN-LAST:event_BackLabelMousePressed
-
-    private void DayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayComboBoxActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_DayComboBoxActionPerformed
-
-    private void HourComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HourComboBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HourComboBox2ActionPerformed
-
-    private void MinuteComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinuteComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MinuteComboBox1ActionPerformed
-
+    
+    //Method To Go To The Next Page
     private void NextLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextLabelMouseClicked
 
         if (checkInfo()) {
@@ -268,12 +246,15 @@ public class Date_Time extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_NextLabelMouseClicked
 
+    //Method To Notify The Server When User Exit
     private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
-        // Notify The Server When User Exit
+
         Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
         System.exit(0);
+        
     }//GEN-LAST:event_Close
 
+    //Method To Check The Date
     public boolean checkInfo() {
         boolean valid = true;
         Date_Error.setText("  ");
@@ -408,4 +389,5 @@ public class Date_Time extends javax.swing.JFrame {
     private javax.swing.JLabel WiFiIcon;
     private javax.swing.JLabel calIcon;
     // End of variables declaration//GEN-END:variables
-}
+
+}//class

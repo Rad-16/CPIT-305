@@ -1,5 +1,6 @@
 package Interfaces;
 
+//Imports
 import static Interfaces.LogIn.u;
 import static Interfaces.startApp.j;
 import java.awt.Color;
@@ -7,12 +8,15 @@ import java.awt.Image;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 
+//Class To Take Requirements Test
 public class Requirements extends javax.swing.JFrame {
 
     public Requirements() {
         
         initComponents();
         
+    //----------------------------------Icons-----------------------------------
+    
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);
@@ -33,6 +37,7 @@ public class Requirements extends javax.swing.JFrame {
         ImageIcon QuizS = new ImageIcon(Quiz.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH));
         QuizIcon.setIcon(QuizS);
         
+    //--------------------------------------------------------------------------
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(yes); buttonGroup.add(No);
                 
@@ -180,22 +185,12 @@ public class Requirements extends javax.swing.JFrame {
         yes.setBackground(new java.awt.Color(255, 255, 255));
         yes.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
         yes.setText("Yes");
-        yes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yesActionPerformed(evt);
-            }
-        });
         PinkBackground.add(yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 325, -1, 20));
 
         No.setBackground(new java.awt.Color(255, 255, 255));
         No.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
         No.setText("No");
         No.setToolTipText("");
-        No.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NoActionPerformed(evt);
-            }
-        });
         PinkBackground.add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 325, -1, 20));
 
         Reslut.setBackground(new java.awt.Color(207, 117, 117));
@@ -216,11 +211,6 @@ public class Requirements extends javax.swing.JFrame {
         LastDonComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         LastDonComboBox.setFocusTraversalPolicyProvider(true);
         LastDonComboBox.setName(""); // NOI18N
-        LastDonComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LastDonComboBoxActionPerformed(evt);
-            }
-        });
         PinkBackground.add(LastDonComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 130, 28));
 
         LastDonLabel.setBackground(new java.awt.Color(255, 204, 204));
@@ -258,6 +248,7 @@ public class Requirements extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Method To Go To The HomePage
     private void backLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelMousePressed
 
         dispose();
@@ -266,14 +257,7 @@ public class Requirements extends javax.swing.JFrame {
         
     }//GEN-LAST:event_backLabelMousePressed
 
-    private void NoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NoActionPerformed
-
-    private void yesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_yesActionPerformed
-
+    //Method To Get The Result Of The Test
     private void ReslutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReslutActionPerformed
         
         //Initalise Text
@@ -307,14 +291,12 @@ public class Requirements extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ReslutActionPerformed
 
-    private void LastDonComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastDonComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LastDonComboBoxActionPerformed
-
+    //Method To Notify The Server When User Exit
     private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
-        // Notify The Server When User Exit
+
         Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
         System.exit(0);
+        
     }//GEN-LAST:event_Close
 
     /**
@@ -354,6 +336,7 @@ public class Requirements extends javax.swing.JFrame {
     }
       
     
+    //Method To Check Age
     private boolean checkAge() {
 
     //------------------------Initalise------------------------//
@@ -398,7 +381,7 @@ public class Requirements extends javax.swing.JFrame {
         return valid;
     }
          
-    
+    //Method To Check Weight
     private boolean checkWeight() {
 
     //------------------------Initalise------------------------//
@@ -434,6 +417,7 @@ public class Requirements extends javax.swing.JFrame {
         return valid;
     }
     
+    //Method To Check The Last Donation
     private boolean checkLastDonation() {
         
     //------------------------Initalise------------------------//
@@ -459,6 +443,7 @@ public class Requirements extends javax.swing.JFrame {
         
     }
              
+    //Method To Check antibiotics
     private boolean checkantibiotics() {
         
     //------------------------Initalise------------------------//
@@ -525,4 +510,5 @@ public class Requirements extends javax.swing.JFrame {
     private javax.swing.JLabel w_Error;
     private javax.swing.JRadioButton yes;
     // End of variables declaration//GEN-END:variables
-}
+
+}//class

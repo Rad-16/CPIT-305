@@ -1,5 +1,6 @@
 package Interfaces;
 
+//Class To Make Appointment
 public class Appointment {
     
     private String date;
@@ -12,6 +13,7 @@ public class Appointment {
         this.center = center;
     }
 
+//-----------------------------Getter-----------------------------//
     public String getDate() {
         return date;
     }
@@ -23,7 +25,9 @@ public class Appointment {
     public String getCenter() {
         return center;
     }
-
+    
+    
+//-----------------------------Setter-----------------------------//
     public void setDate(String date) {
         this.date = date;
     }
@@ -36,6 +40,7 @@ public class Appointment {
         this.center = center;
     }
 
+//-----------------------------ToString-----------------------------//
     @Override
     public String toString() {
         return "- " + time + ", at " + center + ", on " + date;

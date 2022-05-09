@@ -1,14 +1,18 @@
 package Interfaces;
 
+//Imorts
 import static Interfaces.LogIn.u;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
+//Class To See The Donation Process
 public class DonProcess extends javax.swing.JFrame {
 
     public DonProcess() {
         initComponents();
         
+    //----------------------------------Icons-----------------------------------
+    
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);        
@@ -147,6 +151,7 @@ public class DonProcess extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Method To Go To The HomePage
     private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
 
         dispose();
@@ -155,10 +160,12 @@ public class DonProcess extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BackLabelMousePressed
 
+    //Method To Notify The Server When User Exit
     private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
-        // Notify The Server When User Exit
+
         Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
         System.exit(0);
+        
     }//GEN-LAST:event_Close
 
     /**
@@ -213,4 +220,5 @@ public class DonProcess extends javax.swing.JFrame {
     private javax.swing.JPanel UbMenu;
     private javax.swing.JLabel WiFiIcon;
     // End of variables declaration//GEN-END:variables
-}
+
+}//class

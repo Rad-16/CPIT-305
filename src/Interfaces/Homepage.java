@@ -1,5 +1,6 @@
 package Interfaces;
 
+//Imports
 import static Interfaces.LogIn.u;
 import static Interfaces.startApp.j;
 import java.awt.Image;
@@ -8,11 +9,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
 
+//Class To See The Homepage of the Blood Donation System
 public class Homepage extends javax.swing.JFrame {
 
     public Homepage() {
         initComponents();
         
+    //----------------------------------Icons-----------------------------------
+    
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);
@@ -60,7 +64,7 @@ public class Homepage extends javax.swing.JFrame {
         NetworkIcon = new javax.swing.JLabel();
         Appointment = new javax.swing.JRadioButton();
         HomepageText4 = new javax.swing.JLabel();
-        Appointment1 = new javax.swing.JRadioButton();
+        DonRequest = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle(u.getID());
@@ -178,16 +182,16 @@ public class Homepage extends javax.swing.JFrame {
         HomepageText4.setText("_________________________");
         PinkBackground.add(HomepageText4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 105, 230, 30));
 
-        Appointment1.setBackground(new java.awt.Color(255, 230, 230));
-        buttonGroup1.add(Appointment1);
-        Appointment1.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        Appointment1.setText("Donation requests");
-        Appointment1.addActionListener(new java.awt.event.ActionListener() {
+        DonRequest.setBackground(new java.awt.Color(255, 230, 230));
+        buttonGroup1.add(DonRequest);
+        DonRequest.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
+        DonRequest.setText("Donation Requests");
+        DonRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Appointment1ActionPerformed(evt);
+                DonRequestActionPerformed(evt);
             }
         });
-        PinkBackground.add(Appointment1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+        PinkBackground.add(DonRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -213,13 +217,16 @@ public class Homepage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Method To Go To The Donation Process Interface And See The Process
     private void DonChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonChoiceActionPerformed
-        // TODO add your handling code here:
+
         dispose();
         DonProcess D = new DonProcess();
         D.setVisible(true);
+        
     }//GEN-LAST:event_DonChoiceActionPerformed
 
+    //Method To Go To The Requirement Interface and The Test
     private void ReqChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReqChoiceActionPerformed
         
         dispose();
@@ -228,6 +235,7 @@ public class Homepage extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ReqChoiceActionPerformed
 
+    //Method To Go To The Center Interface and Take an Appointment
     private void CenChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CenChoiceActionPerformed
                 
         if(u.isEligible() == 0){
@@ -245,6 +253,7 @@ public class Homepage extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_CenChoiceActionPerformed
 
+    //Method To Go To The Appointment Interface and See Your Appointments
     private void AppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppointmentActionPerformed
         
         dispose();
@@ -253,7 +262,8 @@ public class Homepage extends javax.swing.JFrame {
         
     }//GEN-LAST:event_AppointmentActionPerformed
 
-    private void Appointment1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Appointment1ActionPerformed
+    //Method To Go To The Donation Request Interface and Add Request or Donate
+    private void DonRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonRequestActionPerformed
 
         Connection con = null;
         
@@ -290,12 +300,14 @@ public class Homepage extends javax.swing.JFrame {
             j.showMessageDialog(null, "Class Not Found: " + ex.getMessage());
         }
 
-    }//GEN-LAST:event_Appointment1ActionPerformed
+    }//GEN-LAST:event_DonRequestActionPerformed
 
+    //Method Notify The Server When User Exit
     private void Colse(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Colse
-        // Notify The Server When User Exit
+        
         Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
         System.exit(0);
+        
     }//GEN-LAST:event_Colse
 
     /**
@@ -335,11 +347,11 @@ public class Homepage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton Appointment;
-    private javax.swing.JRadioButton Appointment1;
     private javax.swing.JLabel BDonIcon;
     private javax.swing.JLabel BatteryIcon;
     private javax.swing.JRadioButton CenChoice;
     private javax.swing.JRadioButton DonChoice;
+    private javax.swing.JRadioButton DonRequest;
     private javax.swing.JLabel HomepageText;
     private javax.swing.JLabel HomepageText4;
     private javax.swing.JLabel MenuIcon;
@@ -353,4 +365,5 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JLabel WiFiIcon;
     private javax.swing.ButtonGroup buttonGroup1;
     // End of variables declaration//GEN-END:variables
-}
+
+}//class

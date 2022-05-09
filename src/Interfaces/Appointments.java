@@ -1,5 +1,6 @@
 package Interfaces;
 
+//Imports
 import static Interfaces.LogIn.u;
 import static Interfaces.startApp.j;
 import java.awt.Image;
@@ -11,11 +12,14 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+//Class To See Appointments
 public class Appointments extends javax.swing.JFrame {
 
     public Appointments() {
         initComponents();
         
+    //----------------------------------Icons-----------------------------------
+    
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);
@@ -32,10 +36,15 @@ public class Appointments extends javax.swing.JFrame {
         ImageIcon NetworkS = new ImageIcon(Network.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         NetworkIcon.setIcon(NetworkS);
         
-        // Display user appointment
+    // ----------------------- Display user appointment ------------------------
+        
+        // (1) Make File
         File f = new File("Appoinments\\"+u.getID()+".txt");
+        
+        // (20 Set Appointment
         u.setMyAppointment(new ArrayList<Appointment>());
         
+        // (3) Reading Fro, File
         try(BufferedReader br = new BufferedReader(new FileReader(f)) ){
            
             String s;
@@ -46,6 +55,7 @@ public class Appointments extends javax.swing.JFrame {
                 u.getMyAppointment().add(a);
                 
             }
+            
             Display(u.getMyAppointment());
             
         } 
@@ -188,6 +198,7 @@ public class Appointments extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Method To Go To The HomePage
     private void BackLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMousePressed
 
         dispose();
@@ -196,12 +207,15 @@ public class Appointments extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BackLabelMousePressed
 
+    //Method To Notify The Server When User Exit
     private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
-        // Notify The Server When User Exit
+        
         Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
         System.exit(0);
+        
     }//GEN-LAST:event_Close
 
+    //Method To Display Appointment 
     public void Display(ArrayList<Appointment> a) {
         
         JLabel[] list = new JLabel[a.size()];
@@ -271,4 +285,4 @@ public class Appointments extends javax.swing.JFrame {
     private javax.swing.JLabel WiFiIcon;
     // End of variables declaration//GEN-END:variables
 
-}
+}//class

@@ -1,7 +1,9 @@
 package Interfaces;
 
+//Import
 import java.util.ArrayList;
 
+//Class To Make User
 public class User {
 
 //----------------------------Variables----------------------------//
@@ -25,10 +27,6 @@ public class User {
             }
         }
         return null;
-    }
-
-    public static void add() {
-
     }
 
 //-----------------------------Getter-----------------------------//

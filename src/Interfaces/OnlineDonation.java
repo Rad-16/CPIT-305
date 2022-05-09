@@ -1,9 +1,9 @@
 package Interfaces;
 
+//Imports
 import static Interfaces.LogIn.u;
 import static Interfaces.startApp.clients;
 import static Interfaces.startApp.j;
-import static Interfaces.startApp.out;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
 
+//Class To Deal with Adding Request Or Donate 
 public class OnlineDonation extends javax.swing.JFrame {
 
     private Connection con = null;
@@ -19,6 +20,8 @@ public class OnlineDonation extends javax.swing.JFrame {
     public OnlineDonation() {
         initComponents();
         
+    //----------------------------------Icons-----------------------------------
+    
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);
@@ -39,6 +42,7 @@ public class OnlineDonation extends javax.swing.JFrame {
         ImageIcon NetworkS = new ImageIcon(Network.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
         NetworkIcon.setIcon(NetworkS);
         
+        //----------------- Get Data From Database -----------------
         try {
             
             // (1) driver for JDBC connections
@@ -245,13 +249,14 @@ public class OnlineDonation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Method To Go To Add Donation Request
     private void AddReqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddReqActionPerformed
         
         try {
             
             //if User Login Correctly
             if (u != null) {
-
+                
                 Statement st = con.createStatement();
 
                 st.executeUpdate("INSERT INTO Request" + " VALUES(" + u.getID() + ")");
@@ -277,9 +282,9 @@ public class OnlineDonation extends javax.swing.JFrame {
                 
                 // Notify The Server That a Client Added Request
                 Interfaces.startApp.out.println("Client " + u.getID() + " Add Donation Request");
+                
             }//if
 
-            //Add Dialog
             else {
                 j.showMessageDialog(null, "LogIn First");
             }
@@ -293,20 +298,30 @@ public class OnlineDonation extends javax.swing.JFrame {
         
     }//GEN-LAST:event_AddReqActionPerformed
 
+    //Method To Donate For A Request
     private void DonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonateActionPerformed
 
         //if there this selection
         if(u != null){
         if (!Requests.isSelectionEmpty()) {
 
-            //Checks
+        //--------------------------- Checks ---------------------------
+            //If user Did Not Pass The Test
             if (u.isEligible() == 0) {
                 j.showMessageDialog(null, "Sorry, you are not Eligible to Donate");
-            } else if (u.isEligible() == -1) {
+            } 
+            
+            //If Usr Did Not Take The Test
+            else if (u.isEligible() == -1) {
                 j.showMessageDialog(null, "Take the reqiurement quiz first");
-            } else if(Requests.getSelectedValue().equals(u.getID())){
+            } 
+            
+            //If User Try To Donate To Himself
+            else if(Requests.getSelectedValue().equals(u.getID())){
                 j.showMessageDialog(null, "You Can Not Donate for Yourself");
             }
+            
+        //----------------------------------------------------------------------
             
             //if Everything Correct
             else {
@@ -318,11 +333,12 @@ public class OnlineDonation extends javax.swing.JFrame {
                     
                     //(2) Delete Query
                     String query = "DELETE FROM Request WHERE ID = " + Requests.getSelectedValue();
-                    int deleted = st.executeUpdate(query);
+                    st.executeUpdate(query);
                     
                     // Notify The Server
-                        Interfaces.startApp.out.println("Client " + u.getID() + " Donated to " + Requests.getSelectedValue());
-                }//try
+                    Interfaces.startApp.out.println("Client " + u.getID() + " Donated to " + Requests.getSelectedValue());
+                
+                }
                 
                 //SQL Exception
                 catch (SQLException s) {
@@ -332,13 +348,11 @@ public class OnlineDonation extends javax.swing.JFrame {
                 //Reomve Request from ArrayList
                 for (int i = 0; i < clients.size(); i++) {
                     if (Requests.getSelectedValue() == clients.get(i)) {
-                        
-                        
                         clients.remove(clients.get(i));
                     }
                 }
                 
-                //Choose Appointement
+                //Go To Appointement
                 dispose();
                 Centers C = new Centers();
                 C.setVisible(true);                
@@ -353,11 +367,15 @@ public class OnlineDonation extends javax.swing.JFrame {
         }
         
         }
+        
+        //If LogIn Is Not Correct
         else{
             j.showMessageDialog(null, "LogIn First");
         }
+        
     }//GEN-LAST:event_DonateActionPerformed
 
+    //MeThod To Go Back To HomePage
     private void backLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelMousePressed
 
         dispose();
@@ -366,10 +384,12 @@ public class OnlineDonation extends javax.swing.JFrame {
         
     }//GEN-LAST:event_backLabelMousePressed
 
+    //Method to Notify The Server When User Exit
     private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
-        // Notify The Server When User Exit
+
         Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
         System.exit(0);
+        
     }//GEN-LAST:event_Close
 
     public static void main(String args[]) {
@@ -401,4 +421,5 @@ public class OnlineDonation extends javax.swing.JFrame {
     private javax.swing.JLabel backLabel;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
-}
+
+}//class

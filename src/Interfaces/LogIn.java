@@ -1,10 +1,12 @@
 package Interfaces;
 
+//Imports
 import static Interfaces.startApp.out;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
+//Class To Sign Up to the Blood Donation System
 public class LogIn extends javax.swing.JFrame {
 
     boolean validInfo;
@@ -13,7 +15,8 @@ public class LogIn extends javax.swing.JFrame {
     public LogIn() {
         initComponents();
         
-    //---------------------------------Icons----------------------------------//
+    //----------------------------------Icons-----------------------------------
+    
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         MenuIcon.setIcon(MenuS);
@@ -216,9 +219,11 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_SignUpMousePressed
 
     private void Close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Close
+        
         // Notify The Server When User Exit
         Interfaces.startApp.out.println("* Client " + u.getID() + " Exit *");
         System.exit(0);
+        
     }//GEN-LAST:event_Close
 
     private boolean isExist(){
@@ -380,4 +385,5 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel UserIcon;
     private javax.swing.JLabel WiFiIcon;
     // End of variables declaration//GEN-END:variables
-}
+
+}//class

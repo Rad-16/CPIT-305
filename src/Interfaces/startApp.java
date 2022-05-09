@@ -50,7 +50,7 @@ public class startApp {
             Socket client = new Socket("127.0.0.1", 8800);
             
             in = new Scanner(client.getInputStream());
-            out = new PrintWriter(client.getOutputStream(), true);            
+            out = new PrintWriter(client.getOutputStream(), true);
             
         }//try 
 

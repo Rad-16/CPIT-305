@@ -1,5 +1,6 @@
 package Interfaces;
 
+//Imports
 import static Interfaces.LogIn.u;
 import static Interfaces.startApp.j;
 import java.awt.Color;
@@ -10,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
 
+//Class To Sign Up to the Blood Donation System
 public class SignUp extends javax.swing.JFrame {
 
     boolean validInfo;
@@ -17,7 +19,7 @@ public class SignUp extends javax.swing.JFrame {
     public SignUp() {
         initComponents();
         
-        //--------------------------------Icons---------------------------------
+    //----------------------------------Icons-----------------------------------
         
         ImageIcon Menu = new ImageIcon("Icon\\menu.png");
         ImageIcon MenuS = new ImageIcon(Menu.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
@@ -136,12 +138,6 @@ public class SignUp extends javax.swing.JFrame {
         IDText.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         IDText.setText("ID/Iqama:");
         PinkBackground.add(IDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
-
-        Pass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PassActionPerformed(evt);
-            }
-        });
         PinkBackground.add(Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 130, -1));
         PinkBackground.add(IDField, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 130, -1));
 
@@ -154,12 +150,6 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
         PinkBackground.add(Enter, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, 100, 40));
-
-        Email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmailActionPerformed(evt);
-            }
-        });
         PinkBackground.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 130, -1));
 
         PWText1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
@@ -202,11 +192,6 @@ public class SignUp extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void PassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_PassActionPerformed
 
     private void EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterActionPerformed
 
@@ -272,10 +257,6 @@ public class SignUp extends javax.swing.JFrame {
         }//if
         
     }//GEN-LAST:event_EnterActionPerformed
-
-    private void EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmailActionPerformed
 
     private boolean checkPassword() {
 
@@ -414,4 +395,5 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel WiFiIcon;
     private javax.swing.ButtonGroup buttonGroup1;
     // End of variables declaration//GEN-END:variables
-}
+
+}//class
